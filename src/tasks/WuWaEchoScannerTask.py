@@ -1,6 +1,9 @@
-import re
 import time
+import yaml
 from ok import TriggerTask, Box
+from src.wuwa_screen_utils import WuWaScreenUtils
+from src.wuwa_echo_data import Echo, EchoRarity, EchoType, EchoStat, parse_stat_from_text
+
 
 class WuWaEchoScannerTask(TriggerTask):
     def __init__(self, *args, **kwargs):
@@ -8,76 +11,129 @@ class WuWaEchoScannerTask(TriggerTask):
         self.name = "鸣潮声骸扫描器"
         self.description = "扫描游戏中的声骸数据并保存"
         self.default_config.update({
-            'scan_count': 10,  # 默认扫描声骸数量
-            'scan_delay': 0.5, # 默认扫描延迟
-            'save_path': 'echoes.yaml', # 声骸数据保存路径
+            'scan_limit': 100,  # 默认扫描声骸数量上限
+            'scan_delay': 0.5,  # 每次点击后的等待时间
+            'save_path': 'echoes.yaml',  # 声骸数据保存路径
         })
         self.scanned_echoes = []
-        self.current_scan_count = 0
+        self.scanned_count = 0
+        self.wuwa_screen = WuWaScreenUtils(self)  # 实例化屏幕工具
+        self.processed_echo_coords = set()  # 记录已处理的声骸格子坐标，避免重复扫描
 
     def run(self):
-        # 检查是否在声骸背包页面
-        # 假设通过OCR识别“声骸”字样来判断是否在声骸页面
-        # 实际应用中可能需要更精确的特征匹配
-        if not self.ocr(match="声骸", box="top_left"):
-            self.log_info("不在声骸背包页面，等待进入...")
-            return
+        if not self.wuwa_screen.is_in_echo_page():
+            self.log_info("不在声骸背包页面，尝试进入...")
+            if not self.wuwa_screen.navigate_to_echo_page():
+                self.log_error("无法进入声骸背包页面，请确保游戏运行且在正确界面。")
+                return
+            self.sleep(2)  # 等待页面完全加载
 
-        self.log_info(f"开始扫描声骸，已扫描 {self.current_scan_count}/{self.config.get('scan_count')}")
+        self.log_info(f"开始扫描声骸，已扫描 {self.scanned_count}/{self.config.get('scan_limit')}")
 
-        # 模拟扫描一个声骸的逻辑
-        # 实际中需要根据游戏界面布局，精确OCR声骸名称、主词条、副词条等
-        # 这里仅为示例，假设每次run扫描一个声骸
-        if self.current_scan_count < self.config.get('scan_count'):
-            # 模拟识别声骸名称
-            echo_name_box = self.ocr(box=Box(x=0.1, y=0.2, width=0.2, height=0.05)) # 示例坐标
-            echo_name = echo_name_box[0].name if echo_name_box else f"未知声骸_{self.current_scan_count}"
+        echo_slot_boxes = self.wuwa_screen.get_echo_slot_boxes()
+        current_page_scanned = False
 
-            # 模拟识别主词条
-            main_stat_box = self.ocr(box=Box(x=0.1, y=0.3, width=0.2, height=0.05)) # 示例坐标
-            main_stat = main_stat_box[0].name if main_stat_box else "未知主词条"
+        for i, slot_box in enumerate(echo_slot_boxes):
+            # 检查这个格子是否已经处理过
+            # 使用格子中心点作为唯一标识
+            slot_center_coord = (slot_box.x + slot_box.width / 2, slot_box.y + slot_box.height / 2)
+            if slot_center_coord in self.processed_echo_coords:
+                continue
 
-            # 模拟识别副词条 (需要多次OCR或更复杂的逻辑)
-            sub_stats = []
-            for i in range(4): # 假设有4个副词条
-                sub_stat_box = self.ocr(box=Box(x=0.1, y=0.4 + i * 0.05, width=0.2, height=0.05)) # 示例坐标
-                if sub_stat_box: 
-                    sub_stats.append(sub_stat_box[0].name)
-                else:
-                    sub_stats.append(f"未知副词条_{i}")
-
-            echo_data = {
-                "name": echo_name,
-                "main_stat": main_stat,
-                "sub_stats": sub_stats,
-                "scanned_time": time.time()
-            }
-            self.scanned_echoes.append(echo_data)
-            self.current_scan_count += 1
-            self.log_info(f"扫描到声骸: {echo_name}")
-
-            # 模拟滚动到下一个声骸
-            self.scroll("down") # 示例操作，实际可能需要更精确的滚动或点击下一页
+            self.log_info(f"点击第 {i + 1} 个声骸格子: {slot_box.x}, {slot_box.y}")
+            self.wuwa_screen.click_echo_item(slot_box)
             self.sleep(self.config.get('scan_delay'))
+
+            echo_data_dict = self.wuwa_screen.extract_complete_echo_data()
+            if echo_data_dict:
+                # 尝试将字典数据转换为Echo对象
+                try:
+                    main_stat = EchoStat(
+                        stat_type=echo_data_dict['main_stat']['name'],
+                        value=echo_data_dict['main_stat']['value'],
+                        is_percentage=echo_data_dict['main_stat']['is_percentage']
+                    )
+                    sub_stats = [
+                        EchoStat(
+                            stat_type=s['name'],
+                            value=s['value'],
+                            is_percentage=s['is_percentage']
+                        ) for s in echo_data_dict['sub_stats']
+                    ]
+
+                    # 尝试从字符串解析EchoType和EchoRarity
+                    echo_type_str = echo_data_dict.get('echo_type', 'COMMON_CLASS')  # 假设可以从UI提取
+                    echo_type = EchoType[
+                        echo_type_str.upper().replace(' ', '_')] if echo_type_str else EchoType.COMMON_CLASS
+
+                    rarity_int = echo_data_dict.get('rarity', 1)
+                    rarity = EchoRarity(rarity_int)
+
+                    echo_obj = Echo(
+                        name=echo_data_dict['name'],
+                        rarity=rarity,
+                        echo_type=echo_type,
+                        level=echo_data_dict['level'],
+                        main_stat=main_stat,
+                        sub_stats=sub_stats,
+                        set_name=echo_data_dict['set_name'],
+                        cost=self.wuwa_screen.estimate_echo_cost(rarity_int, echo_type_str),  # 估算消耗
+                        position=self.wuwa_screen.get_echo_position_from_ui()  # 从UI获取位置
+                    )
+                    self.scanned_echoes.append(echo_obj)
+                    self.scanned_count += 1
+                    self.processed_echo_coords.add(slot_center_coord)
+                    self.log_info(f"成功扫描声骸: {echo_obj.name}, 已扫描 {self.scanned_count}")
+                    current_page_scanned = True
+                except Exception as e:
+                    self.log_error(f"解析声骸数据失败: {e}, 原始数据: {echo_data_dict}")
+            else:
+                self.log_info(f"未能在格子 {i + 1} 提取到声骸数据，可能为空或识别失败。")
+
+            if self.scanned_count >= self.config.get('scan_limit'):
+                self.log_info("达到扫描数量上限，停止扫描。")
+                self._save_echo_data()
+                self.log_info("扫描任务结束，请手动停止触发器。")
+                return
+
+        # 如果当前页面有新的声骸被扫描，尝试滚动继续扫描
+        if current_page_scanned:
+            self.log_info("滚动页面以扫描更多声骸...")
+            self.wuwa_screen.scroll_echo_list("down")
+            self.sleep(1)  # 等待滚动和新内容加载
         else:
-            self.log_info("声骸扫描完成，保存数据...")
+            self.log_info("当前页面没有新的声骸可扫描，可能已扫描完毕或需要手动干预。")
             self._save_echo_data()
             self.log_info("扫描任务结束，请手动停止触发器。")
-            # 实际中可能需要一个机制来自动停止TriggerTask，或者通知用户停止
-            # self.stop() # 如果有stop方法可以调用
+            # 可以在这里添加逻辑来判断是否已经滚动到列表底部
 
     def _save_echo_data(self):
-        # 将scanned_echoes保存到yaml文件
-        import yaml
+        """将scanned_echoes保存到yaml文件"""
         save_path = self.config.get('save_path')
+        # 将Echo对象转换为字典以便保存
+        serializable_echoes = []
+        for echo in self.scanned_echoes:
+            serializable_echo = {
+                'name': echo.name,
+                'rarity': echo.rarity.value,
+                'echo_type': echo.echo_type.value,
+                'level': echo.level,
+                'main_stat': {'stat_type': echo.main_stat.stat_type, 'value': echo.main_stat.value,
+                              'is_percentage': echo.main_stat.is_percentage},
+                'sub_stats': [{'stat_type': s.stat_type, 'value': s.value, 'is_percentage': s.is_percentage} for s in
+                              echo.sub_stats],
+                'set_name': echo.set_name,
+                'cost': echo.cost,
+                'position': echo.position
+            }
+            serializable_echoes.append(serializable_echo)
+
         with open(save_path, 'w', encoding='utf-8') as f:
-            yaml.dump(self.scanned_echoes, f, allow_unicode=True)
+            yaml.dump(serializable_echoes, f, allow_unicode=True, sort_keys=False)
         self.log_info(f"声骸数据已保存到 {save_path}")
 
     def on_stop(self):
-        # 任务停止时调用，确保数据保存
+        """任务停止时调用，确保数据保存"""
         if self.scanned_echoes:
             self._save_echo_data()
         self.log_info("鸣潮声骸扫描器已停止。")
-
-
