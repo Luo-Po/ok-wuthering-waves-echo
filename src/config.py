@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import numpy as np
 from ok import ConfigOption
@@ -12,6 +13,9 @@ key_config_option = ConfigOption('Game Hotkey Config', { #全局配置示例
     'Tool Key': 't',
 }, description='In Game Hotkey for Skills')
 
+def calculate_pc_exe_path(running_path):
+    game_exe_folder = Path(running_path).parents[3]
+    return str(game_exe_folder / "Wuthering Waves.exe")
 
 def make_bottom_right_black(frame):
     """
@@ -63,14 +67,17 @@ config = {
         }
     },
     'windows': {  # required  when supporting windows game
-        'exe': 'StarRail.exe',
-        # 'hwnd_class': 'UnrealWindow', #增加重名检查准确度
-        'interaction': 'Genshin', #支持大多数PC游戏后台点击
+        'exe': 'Client-Win64-Shipping.exe',
+        'calculate_pc_exe_path': calculate_pc_exe_path,
+        'hwnd_class': 'UnrealWindow',
+        'interaction': 'PostMessage',
         'can_bit_blt': True,  # default false, opengl games does not support bit_blt
         'bit_blt_render_full': True,
-        'check_hdr': True, #当用户开启AutoHDR时候提示用户, 但不禁止使用
-        'force_no_hdr': False, #True=当用户开启AutoHDR时候禁止使用
-        'require_bg': True # 要求使用后台截图
+        'check_hdr': False,
+        'force_no_hdr': False,
+        'check_night_light': True,
+        'force_no_night_light': False,
+        'require_bg': True
     },
     'start_timeout': 120,  # default 60
     'window_size': { #ok-script窗口大小
@@ -108,6 +115,7 @@ config = {
     'my_app': ['src.globals', 'Globals'], # 全局单例对象, 可以存放加载的模型, 使用og.my_app调用
     'onetime_tasks': [  # tasks to execute
         ["src.tasks.MyOneTimeTask", "MyOneTimeTask"],
+        ["src.tasks.WuWaEchoScannerTask", "WuWaEchoScannerTask"],
         ["ok", "DiagnosisTask"],
     ],
     'trigger_tasks':[
