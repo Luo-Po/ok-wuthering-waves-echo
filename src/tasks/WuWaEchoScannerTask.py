@@ -11,7 +11,7 @@ class WuWaEchoScannerTask(TriggerTask):
         self.name = "鸣潮声骸扫描器"
         self.description = "扫描游戏中的声骸数据并保存"
         self.default_config.update({
-            'scan_limit': 100,  # 默认扫描声骸数量上限
+            'scan_limit': 3000,  # 默认扫描声骸数量上限
             'scan_delay': 0.5,  # 每次点击后的等待时间
             'save_path': 'echoes.yaml',  # 声骸数据保存路径
         })
@@ -30,10 +30,15 @@ class WuWaEchoScannerTask(TriggerTask):
 
         self.log_info(f"开始扫描声骸，已扫描 {self.scanned_count}/{self.config.get('scan_limit')}")
 
-        echo_slot_boxes = self.wuwa_screen.get_echo_slot_boxes()
         current_page_scanned = False
 
-        for i, slot_box in enumerate(echo_slot_boxes):
+        level = 1
+        i = 0
+        slot_box = Box(278,166,192,234)
+
+        while level > 0:
+
+
             # 检查这个格子是否已经处理过
             # 使用格子中心点作为唯一标识
             slot_center_coord = (slot_box.x + slot_box.width / 2, slot_box.y + slot_box.height / 2)
@@ -41,13 +46,20 @@ class WuWaEchoScannerTask(TriggerTask):
                 continue
 
             self.log_info(f"点击第 {i + 1} 个声骸格子: {slot_box.x}, {slot_box.y}")
-            self.wuwa_screen.click_echo_item(slot_box)
+            self.wuwa_screen.click_echo_item(slot_box)  # 点击声骸
             self.sleep(self.config.get('scan_delay'))
 
-            echo_data_dict = self.wuwa_screen.extract_complete_echo_data()
+            echo_data_dict = self.wuwa_screen.extract_complete_echo_data()  # 提取声骸信息
             if echo_data_dict:
                 # 尝试将字典数据转换为Echo对象
                 try:
+
+                    if echo_data_dict['level'] == 0:
+                        self._save_echo_data()
+                        self.log_info("扫描任务结束，请手动停止触发器。")
+                    else:
+                        level = int(echo_data_dict['level'])
+
                     main_stat = EchoStat(
                         stat_type=echo_data_dict['main_stat']['name'],
                         value=echo_data_dict['main_stat']['value'],
@@ -76,7 +88,7 @@ class WuWaEchoScannerTask(TriggerTask):
                         level=echo_data_dict['level'],
                         main_stat=main_stat,
                         sub_stats=sub_stats,
-                        set_name=echo_data_dict['set_name'],
+                        # set_name=echo_data_dict['set_name'],
                         cost=self.wuwa_screen.estimate_echo_cost(rarity_int, echo_type_str),  # 估算消耗
                         position=self.wuwa_screen.get_echo_position_from_ui()  # 从UI获取位置
                     )
@@ -90,22 +102,30 @@ class WuWaEchoScannerTask(TriggerTask):
             else:
                 self.log_info(f"未能在格子 {i + 1} 提取到声骸数据，可能为空或识别失败。")
 
+            i = i + 1
+
+            if slot_box.x != 1388:
+                slot_box.x += 222
+            else:
+                slot_box.x = 278
+                if slot_box.y != 988:
+                    slot_box.y += 274
+                else:
+
+                    slot_box.x = 278
+                    slot_box.y = 166
+                    self.log_info("滚动页面以扫描更多声骸...")
+                    # self.wuwa_screen.scroll_echo_list("down")
+                    # self.sleep(1)  # 等待滚动和新内容加载
+                    # self.processed_echo_coords = set()
+                    return
+
             if self.scanned_count >= self.config.get('scan_limit'):
                 self.log_info("达到扫描数量上限，停止扫描。")
                 self._save_echo_data()
                 self.log_info("扫描任务结束，请手动停止触发器。")
                 return
 
-        # 如果当前页面有新的声骸被扫描，尝试滚动继续扫描
-        if current_page_scanned:
-            self.log_info("滚动页面以扫描更多声骸...")
-            self.wuwa_screen.scroll_echo_list("down")
-            self.sleep(1)  # 等待滚动和新内容加载
-        else:
-            self.log_info("当前页面没有新的声骸可扫描，可能已扫描完毕或需要手动干预。")
-            self._save_echo_data()
-            self.log_info("扫描任务结束，请手动停止触发器。")
-            # 可以在这里添加逻辑来判断是否已经滚动到列表底部
 
     def _save_echo_data(self):
         """将scanned_echoes保存到yaml文件"""

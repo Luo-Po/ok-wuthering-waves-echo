@@ -11,6 +11,7 @@ key_config_option = ConfigOption('Game Hotkey Config', { #全局配置示例
     'Liberation Key': 'r',
     'Resonance Key': 'e',
     'Tool Key': 't',
+    'Bag Key': 'b',
 }, description='In Game Hotkey for Skills')
 
 def calculate_pc_exe_path(running_path):
@@ -114,8 +115,9 @@ config = {
     'version': version, #版本
     'my_app': ['src.globals', 'Globals'], # 全局单例对象, 可以存放加载的模型, 使用og.my_app调用
     'onetime_tasks': [  # tasks to execute
-        ["src.tasks.MyOneTimeTask", "MyOneTimeTask"],
+        ["src.tasks.EchoUpgradeAssistTask", "EchoUpgradeAssistTask"],
         ["src.tasks.WuWaEchoScannerTask", "WuWaEchoScannerTask"],
+        ["src.tasks.WuWaEchoOptimizerTask", "WuWaEchoOptimizerTask"],
         ["ok", "DiagnosisTask"],
     ],
     'trigger_tasks':[
