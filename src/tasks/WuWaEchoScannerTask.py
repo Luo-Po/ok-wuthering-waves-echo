@@ -1,8 +1,8 @@
-import time
 import yaml
 from ok import TriggerTask, Box
+
+from src.wuwa_echo_data import Echo, EchoRarity, EchoType, EchoStat
 from src.wuwa_screen_utils import WuWaScreenUtils
-from src.wuwa_echo_data import Echo, EchoRarity, EchoType, EchoStat, parse_stat_from_text
 
 
 class WuWaEchoScannerTask(TriggerTask):
@@ -34,10 +34,9 @@ class WuWaEchoScannerTask(TriggerTask):
 
         level = 1
         i = 0
-        slot_box = Box(278,166,192,234)
+        slot_box = Box(278, 166, 192, 234)
 
         while level > 0:
-
 
             # 检查这个格子是否已经处理过
             # 使用格子中心点作为唯一标识
@@ -125,7 +124,6 @@ class WuWaEchoScannerTask(TriggerTask):
                 self._save_echo_data()
                 self.log_info("扫描任务结束，请手动停止触发器。")
                 return
-
 
     def _save_echo_data(self):
         """将scanned_echoes保存到yaml文件"""

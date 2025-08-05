@@ -6,7 +6,7 @@ from ok import ConfigOption
 
 version = "dev"
 
-key_config_option = ConfigOption('Game Hotkey Config', { #全局配置示例
+key_config_option = ConfigOption('Game Hotkey Config', {  # 全局配置示例
     'Echo Key': 'q',
     'Liberation Key': 'r',
     'Resonance Key': 'e',
@@ -14,9 +14,11 @@ key_config_option = ConfigOption('Game Hotkey Config', { #全局配置示例
     'Bag Key': 'b',
 }, description='In Game Hotkey for Skills')
 
+
 def calculate_pc_exe_path(running_path):
     game_exe_folder = Path(running_path).parents[3]
     return str(game_exe_folder / "Wuthering Waves.exe")
+
 
 def make_bottom_right_black(frame):
     """
@@ -51,12 +53,13 @@ def make_bottom_right_black(frame):
         print(f"Error processing frame: {e}")
         return frame
 
+
 config = {
     'debug': False,  # Optional, default: False
     'use_gui': True,
     'config_folder': 'configs',
     'global_configs': [key_config_option],
-    'screenshot_processor': make_bottom_right_black, # 在截图的时候对frame进行修改, 可选
+    'screenshot_processor': make_bottom_right_black,  # 在截图的时候对frame进行修改, 可选
     'gui_icon': 'icons/icon.png',
     'wait_until_before_delay': 0,
     'wait_until_check_delay': 0,
@@ -81,46 +84,47 @@ config = {
         'require_bg': True
     },
     'start_timeout': 120,  # default 60
-    'window_size': { #ok-script窗口大小
+    'window_size': {  # ok-script窗口大小
         'width': 1200,
         'height': 800,
         'min_width': 600,
         'min_height': 450,
     },
     'supported_resolution': {
-        'ratio': '16:9', #支持的游戏分辨率
-        'min_size': (1280, 720), #支持的最低游戏分辨率
-        'resize_to': [(2560, 1440), (1920, 1080), (1600, 900), (1280, 720)], #如果非16:9自动缩放为 resize_to
+        'ratio': '16:9',  # 支持的游戏分辨率
+        'min_size': (1280, 720),  # 支持的最低游戏分辨率
+        'resize_to': [(2560, 1440), (1920, 1080), (1600, 900), (1280, 720)],  # 如果非16:9自动缩放为 resize_to
     },
     'analytics': {
-        'report_url': 'http://report.ok-script.cn:8080/report', #上报日活, 可选
+        # 'report_url': 'http://report.ok-script.cn:8080/report',  # 上报日活, 可选
     },
     'links': {
-            'default': {
-                'github': 'https://github.com/ok-oldking/ok-script-boilerplate',
-                'discord': 'https://discord.gg/vVyCatEBgA',
-                'sponsor': 'https://www.paypal.com/ncp/payment/JWQBH7JZKNGCQ',
-                'share': 'Download from https://github.com/ok-oldking/ok-script-boilerplate',
-                'faq': 'https://github.com/ok-oldking/ok-script-boilerplate'
-            }
-        },
-    'screenshots_folder': "screenshots", #截图存放目录, 每次重新启动会清空目录
-    'gui_title': 'ok-script-boilerplate',  # Optional
-    'template_matching': {
-        'coco_feature_json': os.path.join('assets', 'result.json'), #coco格式标记, 需要png图片, 在debug模式运行后, 会对进行切图仅保留被标记部分以减少图片大小
-        'default_horizontal_variance': 0.002, #默认x偏移, 查找不传box的时候, 会根据coco坐标, match偏移box内的
-        'default_vertical_variance': 0.002, #默认y偏移
-        'default_threshold': 0.8, #默认threshold
+        'default': {
+            'github': 'https://github.com/ok-oldking/ok-script-boilerplate',
+            'discord': 'https://discord.gg/vVyCatEBgA',
+            'sponsor': 'https://www.paypal.com/ncp/payment/JWQBH7JZKNGCQ',
+            'share': 'Download from https://github.com/ok-oldking/ok-script-boilerplate',
+            'faq': 'https://github.com/ok-oldking/ok-script-boilerplate'
+        }
     },
-    'version': version, #版本
-    'my_app': ['src.globals', 'Globals'], # 全局单例对象, 可以存放加载的模型, 使用og.my_app调用
+    'screenshots_folder': "screenshots",  # 截图存放目录, 每次重新启动会清空目录
+    'gui_title': 'ok-wuthering-waves-echo',  # Optional
+    'template_matching': {
+        'coco_feature_json': os.path.join('assets', 'result.json'),
+        # coco格式标记, 需要png图片, 在debug模式运行后, 会对进行切图仅保留被标记部分以减少图片大小
+        'default_horizontal_variance': 0.002,  # 默认x偏移, 查找不传box的时候, 会根据coco坐标, match偏移box内的
+        'default_vertical_variance': 0.002,  # 默认y偏移
+        'default_threshold': 0.8,  # 默认threshold
+    },
+    'version': version,  # 版本
+    'my_app': ['src.globals', 'Globals'],  # 全局单例对象, 可以存放加载的模型, 使用og.my_app调用
     'onetime_tasks': [  # tasks to execute
         ["src.tasks.EchoUpgradeAssistTask", "EchoUpgradeAssistTask"],
         ["src.tasks.WuWaEchoScannerTask", "WuWaEchoScannerTask"],
         ["src.tasks.WuWaEchoOptimizerTask", "WuWaEchoOptimizerTask"],
         ["ok", "DiagnosisTask"],
     ],
-    'trigger_tasks':[
+    'trigger_tasks': [
         ["src.tasks.MyTriggerTask", "MyTriggerTask"],
     ]
 }

@@ -1,14 +1,14 @@
 class Echo:
-    def __init__(self, name = "", costType = "", mainAttr = "", level = "", score = "",subScore = "", propertyList=None):
-        if propertyList is None:
-            propertyList = []
+    def __init__(self, name="", costType="", main_attr="", level="", score="", sub_score="", property_list=None):
+        if property_list is None:
+            property_list = []
         self.name = name  # 名称 (字符串)
-        self.type = costType  # 类型 (字符串)
-        self.mainAttr = mainAttr  # 主属性 (字符串)
+        self.cost = costType  # 类型 (字符串)
+        self.main_attr = main_attr  # 主属性 (字符串)
         self.level = level  # 等级 (字符串或整数)
         self.score = score  # 评分 (字符串或浮点数)
-        self.subScore = subScore
-        self.propertyList = propertyList  # 属性列表 (字典列表)
+        self.sub_score = sub_score
+        self.property_list = property_list  # 属性列表 (字典列表)
 
     @classmethod
     def from_dict(cls, data):
@@ -16,29 +16,29 @@ class Echo:
         return cls(
             name=data.get("name", ""),
             costType=data.get("type", ""),
-            mainAttr=data.get("mainAtrri", ""),  # 注意原始键名拼写
+            main_attr=data.get("main_attr", ""),  # 注意原始键名拼写
             level=data.get("level", "0"),
             score=data.get("score", "0.00"),
-            propertyList=data.get("propertyList", [])
+            property_list=data.get("property_list", [])
         )
 
     def to_dict(self):
         """将对象转换为字典格式"""
         return {
             "name": self.name,
-            "type": self.type,
-            "mainAtrri": self.mainAttr,  # 保持原始键名拼写
+            "type": self.cost,
+            "main_attr": self.main_attr,  # 保持原始键名拼写
             "level": self.level,
             "score": self.score,
-            "propertyList": self.propertyList
+            "property_list": self.property_list
         }
 
     def __repr__(self):
         """对象的官方字符串表示"""
         return (
-            f"Echo(name={self.name!r}, type={self.type!r}, "
-            f"mainAttr={self.mainAttr!r}, level={self.level!r}, "
-            f"score={self.score!r}, properties={self.propertyList})"
+            f"Echo(name={self.name!r}, type={self.cost!r}, "
+            f"main_attr={self.main_attr!r}, level={self.level!r}, "
+            f"score={self.score!r}, properties={self.property_list})"
         )
 
     # ===== 新增的修改方法 =====
@@ -50,12 +50,12 @@ class Echo:
 
     def update_type(self, new_type):
         """更新类型"""
-        self.type = new_type
+        self.cost = new_type
         return self
 
     def update_main_attr(self, new_main_attr):
         """更新主属性"""
-        self.mainAttr = new_main_attr
+        self.main_attr = new_main_attr
         return self
 
     def update_level(self, new_level):
@@ -70,7 +70,7 @@ class Echo:
 
     def add_property(self, property_name, property_value):
         """添加新属性"""
-        self.propertyList.append({
+        self.property_list.append({
             "property": property_name,
             "value": property_value
         })
@@ -81,10 +81,10 @@ class Echo:
         更新指定索引处的属性
         可单独更新名称或值，或同时更新两者
         """
-        if index < 0 or index >= len(self.propertyList):
+        if index < 0 or index >= len(self.property_list):
             raise IndexError("属性索引超出范围")
 
-        prop = self.propertyList[index]
+        prop = self.property_list[index]
         if new_name is not None:
             prop["property"] = new_name
         if new_value is not None:
@@ -94,15 +94,15 @@ class Echo:
 
     def remove_property(self, index):
         """删除指定索引处的属性"""
-        if index < 0 or index >= len(self.propertyList):
+        if index < 0 or index >= len(self.property_list):
             raise IndexError("属性索引超出范围")
 
-        del self.propertyList[index]
+        del self.property_list[index]
         return self
 
     def find_properties(self, property_name):
         """查找特定名称的所有属性"""
-        return [prop for prop in self.propertyList if prop["property"] == property_name]
+        return [prop for prop in self.property_list if prop["property"] == property_name]
 
     def upgrade_level(self, levels=1):
         """提升等级"""
@@ -119,24 +119,26 @@ class Echo:
         formula: 函数，接受property_list并返回分数
         """
         try:
-            self.score = str(formula(self.propertyList))
+            self.score = str(formula(self.property_list))
         except Exception as e:
             raise ValueError(f"评分计算失败: {str(e)}")
         return self
 
-def contrast_echo(a : Echo,b : Echo) -> bool:
-    if not a.type == b.type:
+
+def contrast_echo(a: Echo, b: Echo) -> bool:
+    if not a.cost == b.cost:
         return False
     elif not a.name == b.name:
         return False
-    elif not a.mainAttr == b.mainAttr:
+    elif not a.main_attr == b.main_attr:
         return False
-    elif not len(a.propertyList) == len(b.propertyList):
+    elif not len(a.property_list) == len(b.property_list):
         return False
-    for i,p in enumerate(a.propertyList):
-        if not p == b.propertyList[i]:
+    for i, p in enumerate(a.property_list):
+        if not p == b.property_list[i]:
             return False
     return True
+
 
 # 使用示例
 if __name__ == "__main__":
@@ -144,10 +146,10 @@ if __name__ == "__main__":
     cost_item = Echo(
         name="飞廉之猩",
         costType="Cost4",
-        mainAttr="暴击22.0%",
+        main_attr="暴击22.0%",
         level="25",
         score="16.62",
-        propertyList=[
+        property_list=[
             {"property": "暴击", "value": "10.5%"},
             {"property": "大生命", "value": "7.9%"},
             {"property": "共鸣效率", "value": "10.8%"},

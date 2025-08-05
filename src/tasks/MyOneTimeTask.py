@@ -1,7 +1,5 @@
 import re
 
-from ok import BaseTask
-
 from src.tasks.MyBaseTask import MyBaseTask
 
 
@@ -20,7 +18,7 @@ class MyOneTimeTask(MyBaseTask):
             'list选项': ['第一', '第二', '第3'],
         })
         self.config_type["下拉菜单选项"] = {'type': "drop_down",
-                                      'options': ['第一', '第二', '第3']}
+                                            'options': ['第一', '第二', '第3']}
 
     def run(self):
         self.log_info('日常任务开始运行!', notify=True)
@@ -30,10 +28,10 @@ class MyOneTimeTask(MyBaseTask):
         self.log_info('日常任务运行完成!', notify=True)
 
     def find_some_text_on_bottom_right(self):
-        return self.ocr(box="bottom_right",match="商城", log=True) #指定box以提高ocr速度
+        return self.ocr(box="bottom_right", match="商城", log=True)  # 指定box以提高ocr速度
 
     def find_some_text_with_relative_box(self):
-        return self.ocr(0.5, 0.5, 1, 1, match=re.compile("招"), log=True) #指定box以提高ocr速度
+        return self.ocr(0.5, 0.5, 1, 1, match=re.compile("招"), log=True)  # 指定box以提高ocr速度
 
     def test_find_one_feature(self):
         return self.find_one('box_battle_1')
@@ -52,7 +50,3 @@ class MyOneTimeTask(MyBaseTask):
         self.do_mouse_up(key='right')
         self.sleep(5)
         self.do_send_key_up('w')
-
-
-
-

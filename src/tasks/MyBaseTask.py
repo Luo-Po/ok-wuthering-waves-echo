@@ -1,6 +1,5 @@
-import re
-
 from ok import BaseTask
+
 
 class MyBaseTask(BaseTask):
 
@@ -21,6 +20,3 @@ class MyBaseTask(BaseTask):
 
     def do_send_key_up(self, key):
         self.executor.interaction.do_send_key_up(key)
-
-
-
