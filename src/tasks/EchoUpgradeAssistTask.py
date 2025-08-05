@@ -1,7 +1,5 @@
 from ok import BaseTask, Box
 
-from ok import BaseTask, Box
-
 from src.Echo import contrast_echo
 from src.echo_scorer import getIdByName
 from src.wuwa_scanner_utils import ocr_echo
@@ -47,7 +45,7 @@ class EchoUpgradeAssistTask(BaseTask):
         while True:
             self.sleep(1)
 
-            page_boxs = self.ocr(match="声骸强化", box=Box(142, 71, to_x=386, to_y=116))
+            page_boxs = self.ocr(box=Box(0, 0, to_x=400, to_y=200))
 
             if len(page_boxs) == 0:
                 a = True
@@ -62,7 +60,9 @@ class EchoUpgradeAssistTask(BaseTask):
         echo = ocr_echo(self, "echo_upgrade")
 
         count = len(echo.property_list)
-        avg_sub_score = echo.sub_score / count
+        avg_sub_score = 0.0
+        if count > 1:
+            avg_sub_score = echo.sub_score / count
 
         msg = f'声骸副词条平均分{avg_sub_score}'
         self.log_info(msg)
