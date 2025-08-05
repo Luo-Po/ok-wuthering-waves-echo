@@ -1,5 +1,5 @@
 import random
-from typing import re
+import re
 
 import yaml
 from ok import BaseTask

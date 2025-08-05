@@ -1,6 +1,7 @@
 import re
 
 from src.tasks.MyBaseTask import MyBaseTask
+from src.wuwa_scanner_utils import box_list
 
 
 class MyOneTimeTask(MyBaseTask):
@@ -21,11 +22,8 @@ class MyOneTimeTask(MyBaseTask):
                                             'options': ['第一', '第二', '第3']}
 
     def run(self):
-        self.log_info('日常任务开始运行!', notify=True)
-        self.click(0.47, 0.60)
-        self.sleep(1)
-        self.run_for_5()
-        self.log_info('日常任务运行完成!', notify=True)
+        while True:
+            self.ocr(box=box_list["bag_echos"]["main"])
 
     def find_some_text_on_bottom_right(self):
         return self.ocr(box="bottom_right", match="商城", log=True)  # 指定box以提高ocr速度

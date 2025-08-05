@@ -244,11 +244,13 @@ self.wait_click_feature('start_battle_button', time_out=15)
 - **断言**: 使用 `unittest` 的断言方法（如 `self.assertEqual`）来验证任务方法的返回值是否符合预期。
 
 **示例测试代码:**
+
 ```python
 # file: tests/test_my_task.py
 import unittest
 from ok.test.TaskTestCase import TaskTestCase
-from src.tasks.MyOneTimeTask import MyOneTimeTask
+from src.tasks.oneTimeTasks.MyOneTimeTask import MyOneTimeTask
+
 
 class TestMyOneTimeTask(TaskTestCase):
     # 指定要测试的 Task 类
@@ -257,10 +259,10 @@ class TestMyOneTimeTask(TaskTestCase):
     def test_ocr1(self):
         # 1. 设置当前屏幕为一张指定的图片
         self.set_image('tests/images/main.png')
-        
+
         # 2. 调用 task 实例的方法
         text_boxes = self.task.find_some_text_on_bottom_right()
-        
+
         # 3. 断言结果是否符合预期
         self.assertEqual(text_boxes[0].name, '商城')
 
@@ -268,6 +270,7 @@ class TestMyOneTimeTask(TaskTestCase):
         self.set_image('tests/images/main.png')
         text_boxes = self.task.find_some_text_with_relative_box()
         self.assertEqual(text_boxes[0].name, '招募')
+
 
 # 运行测试
 if __name__ == '__main__':

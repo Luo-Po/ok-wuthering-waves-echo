@@ -6,7 +6,6 @@ from src.wuwa_scanner_utils import ocr_echo, is_page
 
 
 class EchoUpgradeAssistTask(BaseTask):
-
     role = {}
     echos = []
 
@@ -51,12 +50,12 @@ class EchoUpgradeAssistTask(BaseTask):
     def upgrade_assist(self) -> bool:
         echo = ocr_echo(self, "echo_upgrade")
 
-        count = len(echo.property_list)
+        count = len(echo.get_sub_attr_list())
         avg_sub_score = 0.0
         if count > 1:
-            avg_sub_score = echo.sub_score / count
+            avg_sub_score = echo.get_sub_score() / count
 
-        msg = f'声骸副词条平均分{avg_sub_score}'
+        msg = f'声骸副词条平均分{avg_sub_score},{echo.get_score()}'
         self.log_info(msg)
         return True
 

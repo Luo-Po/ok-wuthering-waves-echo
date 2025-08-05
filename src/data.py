@@ -3988,3 +3988,23 @@ cost_list = [
     {"id": 118, "name": "共鸣回响·芬莱克", "type": "Cost4"},
     {"id": 119, "name": "梦魇·赫卡忒", "type": "Cost4"},
 ]
+# 主属性转换
+main_attr_map = {
+    "暴击22%": {"property": "暴击", "value": "22%"},
+    "暴击22.0%": {"property": "暴击", "value": "22%"},
+    "暴伤44%": {"property": "暴伤", "value": "44%"},
+    "暴伤44.0%": {"property": "暴伤", "value": "44%"},
+    "生命33%": {"property": "大生命", "value": "33%"},
+    "攻击力33%": {"property": "大攻击", "value": "33%"},
+    "防御41.8%": {"property": "大防御", "value": "41.8%"},
+    "治疗26.4%": {"property": "治疗", "value": "26.4%"},
+    "攻击力30%": {"property": "大攻击", "value": "30%"},
+    "属伤30%": {"property": "属伤", "value": "30%"},
+    "生命30%": {"property": "大生命", "value": "30%"},
+    "共鸣效率32%": {"property": "共鸣效率", "value": "32%"},
+    "防御38%": {"property": "大防御", "value": "38%"},
+    "攻击力18%": {"property": "大攻击", "value": "18%"},
+    "攻击18%": {"property": "大攻击", "value": "18%"},
+    "生命22.8%": {"property": "大生命", "value": "22.8%"},
+    "防御18%": {"property": "大防御", "value": "18%"},
+}

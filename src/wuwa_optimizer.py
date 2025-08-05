@@ -90,16 +90,16 @@ class EchoCombination:
 
         for echo in self.echoes:
             # 主词条
-            main_stat = echo.main_stat
-            if main_stat.stat_type not in total_stats:
-                total_stats[main_stat.stat_type] = 0
-            total_stats[main_stat.stat_type] += main_stat.value
+            main_attr = echo.get_main_attr()
+            if main_attr.get_attr() not in total_stats:
+                total_stats[main_attr.get_attr()] = 0
+            total_stats[main_attr.get_attr()] += main_attr.get_value()
 
             # 副词条
-            for sub_stat in echo.sub_stats:
-                if sub_stat.stat_type not in total_stats:
-                    total_stats[sub_stat.stat_type] = 0
-                total_stats[sub_stat.stat_type] += sub_stat.value
+            for sub_stat in echo.get_sub_attr_list():
+                if sub_stat.get_attr() not in total_stats:
+                    total_stats[sub_stat.get_attr()] = 0
+                total_stats[sub_stat.get_attr()] += sub_stat.get_value()
 
         return total_stats
 

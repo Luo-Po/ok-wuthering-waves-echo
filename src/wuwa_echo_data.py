@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import List, Dict, Optional
 
+from Echo import Echo, EchoAttr
+
 
 class EchoRarity(Enum):
     """回音稀有度"""
@@ -33,28 +35,6 @@ class StatType(Enum):
     ENERGY_REGEN = "共鸣效率"
     ELEMENTAL_DMG = "属性伤害加成"
     HEALING_BONUS = "治疗效果加成"
-
-
-@dataclass
-class EchoStat:
-    """回音属性"""
-    stat_type: str
-    value: float
-    is_percentage: bool = False
-
-
-@dataclass
-class Echo:
-    """回音数据结构"""
-    name: str  # 回音名称
-    rarity: EchoRarity  # 稀有度
-    echo_type: EchoType  # 回音类型
-    level: int  # 等级
-    main_stat: EchoStat  # 主词条
-    sub_stats: List[EchoStat]  # 副词条列表
-    set_name: Optional[str] = None  # 套装名称
-    cost: int = 1  # 回音消耗
-    position: int = 1  # 装备位置 (1-5)
 
 
 @dataclass
@@ -151,7 +131,7 @@ class EchoDatabase:
         }
 
 
-def parse_stat_from_text(text: str) -> Optional[EchoStat]:
+def parse_stat_from_text(text: str) -> Optional[EchoAttr]:
     """从文本解析属性"""
     import re
 
@@ -160,14 +140,14 @@ def parse_stat_from_text(text: str) -> Optional[EchoStat]:
     if percent_match:
         stat_name = percent_match.group(1).strip()
         value = float(percent_match.group(2))
-        return EchoStat(stat_type=stat_name, value=value, is_percentage=True)
+        return EchoAttr(attr=stat_name, value=value)
 
     # 匹配固定数值属性
     fixed_match = re.search(r'(.+?)\+(\d+(?:\.\d+)?)', text)
     if fixed_match:
         stat_name = fixed_match.group(1).strip()
         value = float(fixed_match.group(2))
-        return EchoStat(stat_type=stat_name, value=value, is_percentage=False)
+        return EchoAttr(attr=stat_name, value=value)
 
     return None
 
@@ -177,11 +157,11 @@ def calculate_echo_score(echo: Echo, target_stats: List[str]) -> float:
     score = 0.0
 
     # 主词条评分
-    if echo.main_stat.stat_type in target_stats:
+    if echo.get_main_attr().attr in target_stats:
         score += 100  # 主词条权重较高
 
     # 副词条评分
-    for sub_stat in echo.sub_stats:
+    for sub_stat in echo.get_sub_attr_list():
         if sub_stat.stat_type in target_stats:
             # 根据数值和是否为百分比属性给分
             if sub_stat.is_percentage:

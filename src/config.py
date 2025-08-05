@@ -119,10 +119,12 @@ config = {
     'version': version,  # 版本
     'my_app': ['src.globals', 'Globals'],  # 全局单例对象, 可以存放加载的模型, 使用og.my_app调用
     'onetime_tasks': [  # tasks to execute
-        ["src.tasks.EchoUpgradeAssistTask", "EchoUpgradeAssistTask"],
+        ["src.tasks.oneTimeTasks.MyOneTimeTask", "MyOneTimeTask"],
+        ["src.tasks.oneTimeTasks.EchoUpgradeAssistTask", "EchoUpgradeAssistTask"],
+        ["src.tasks.oneTimeTasks.WuWaEchoScannerTask", "WuWaEchoScannerTask"],
         ["ok", "DiagnosisTask"],
     ],
     'trigger_tasks': [
-        ["src.tasks.MyTriggerTask", "MyTriggerTask"],
+        ["src.tasks.triggerTasks.MyTriggerTask", "MyTriggerTask"],
     ]
 }
