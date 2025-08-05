@@ -2,7 +2,7 @@ from ok import BaseTask, Box
 
 from src.Echo import contrast_echo
 from src.echo_scorer import getIdByName
-from src.wuwa_scanner_utils import ocr_echo
+from src.wuwa_scanner_utils import ocr_echo, is_page
 
 
 class EchoUpgradeAssistTask(BaseTask):
@@ -34,27 +34,19 @@ class EchoUpgradeAssistTask(BaseTask):
             "ming": 1
         }
 
-        page_boxs = self.ocr(match="COST", box=Box(65, 49, to_x=169, to_y=86))
-
-        for box in page_boxs:
-            if box.name == "COST":
-                self.identifyExistingEcho()
-                self.log_info("可以开始强化声骸了")
+        if is_page(self, "echo_change"):
+            self.identifyExistingEcho()
+            self.log_info("可以开始强化声骸了")
 
         a = True
         while True:
             self.sleep(1)
 
-            page_boxs = self.ocr(box=Box(0, 0, to_x=400, to_y=200))
-
-            if len(page_boxs) == 0:
-                a = True
-                continue
-            if not a:
-                continue
-            for box in page_boxs:
-                if box.name == "声骸强化":
+            if is_page(self, "echo_upgrade"):
+                if a:
                     a = not self.upgrade_assist()
+            else:
+                a = True
 
     def upgrade_assist(self) -> bool:
         echo = ocr_echo(self, "echo_upgrade")

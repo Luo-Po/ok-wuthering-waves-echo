@@ -31,15 +31,17 @@ box_list = {
         "name": Box(1880, 195, to_x=2426, to_y=240),
         # "cost": Box(1894, 233, to_x=2051, to_y=285),
         "level": Box(1880, 278, to_x=1968, to_y=311),
-        "main": Box(1940, 317, to_x=2426, to_y=407),
-        "sub": Box(1940, 421, to_x=2426, to_y=633)
+        "main": Box(1930, 307, to_x=2436, to_y=417),
+        "sub": Box(1930, 411, to_x=2436, to_y=643)
     },
     "echo_upgrade": {
         "name": Box(251, 152, to_x=635, to_y=201),
         "level": Box(230, 229, to_x=325, to_y=290),
-        "main": Box(297, 322, to_x=908, to_y=362),
+        "main": Box(287, 312, to_x=918, to_y=372),
         "sub": Box(287, 422, to_x=918, to_y=704)
-    }
+    },
+    "page": Box(0, 0, to_x=700, to_y=300)
+
 }
 
 match_list = {
@@ -50,9 +52,46 @@ match_list = {
     "main": re.compile(
         r'^((\d{1,3}(?:\.\d%)?)|(暴击|暴击伤害|攻击|生命|防御|共鸣效率|治疗效果加成|((衍射|气动|热熔|冷凝|湮灭|导电)伤害加成)))$'),
     "sub": re.compile(
-        r'^((\d{1,3}(?:\.\d%)?)|(暴击|暴击伤害|攻击|生命|防御|共鸣效率|((普攻|重击|共鸣技能|共鸣解放)伤害加成)))$')
+        r'^((\d{1,3}(?:\.\d%)?)|(暴击|暴击伤害|攻击|生命|防御|共鸣效率|((普攻|重击|共鸣技能|共鸣解放)伤害加成)))$'),
+    "page": re.compile(
+        r'^(属性详情|武器|声骸\d+/3000|声骸|技能|共鸣链|档案|数据坞|声骸图鉴|合鸣图鉴|数据融合|数据重构|声骸强化|声骸调谐|COST|武器\d+/2000|补给\d+/1000|资源\d+/1000|素材\d+/1000|任务\d+/1000|特殊\d+/1000)$')
 }
 
+pages = {
+    "属性详情": "role_attr",
+    "武器": "role_weapon",
+    "声骸": "role_echo",
+    "技能": "role_forte",
+    "共鸣链": "role_chain",
+    "档案": "role_information",
+    "武器1/2000": "bag_weapons",
+    "声骸1/3000": "bag_weapons",
+    "补给1/1000": "bag_supplies",
+    "资源1/1000": "bag_materials",
+    "素材1/1000": "bag_resources",
+    "任务1/1000": "bag_quest",
+    "特殊1/1000": "bag_valuables",
+    "数据坞": "data_bank",
+    "声骸图鉴": "echo_gallery",
+    "合鸣图鉴": "sonata_gallery",
+    "数据融合": "echo_merge",
+    "数据重构": "echo_modify",
+    "声骸强化": "echo_upgrade",
+    "声骸调谐": "echo_tuning",
+    "COST": "echo_change"
+}
+
+
+def is_page(task, page):
+    return page == which_page(task)
+
+
+def which_page(task) -> str:
+    pageboxs = task.ocr(match=match_list["page"], box=box_list["page"])
+    if pageboxs:
+        page = pages[re.sub(r'(\d+/)', "1/", pageboxs[0].name)]
+        return page
+    return None
 
 def ocr_echo(task, page) -> Echo:
     echo = Echo()
