@@ -14,6 +14,7 @@ class EchoUpgradeAssistTask(BaseTask):
         3: None,
         4: None,
     }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.name = "声骸升级辅助"
@@ -49,10 +50,10 @@ class EchoUpgradeAssistTask(BaseTask):
                     self.lost_cost[cost] = sub_score / len(echo.get_sub_attr_list())
                 else:
                     self.lost_cost[cost] = min(self.lost_cost[cost], sub_score / len(echo.get_sub_attr_list()))
-            for c, s in self.lost_cost:
-                self.notification(
-                    f's',
-                    f'COST{c} 最低副词条平均分'
+            for c in self.lost_cost:
+                self.info_set(
+                    f'COST{c} 最低副词条平均分',
+                    f'{self.lost_cost[c]}'
                 )
 
             self.log_info("可以开始强化声骸了")
@@ -75,46 +76,50 @@ class EchoUpgradeAssistTask(BaseTask):
 
         count = len(echo.get_sub_attr_list())
         avg_sub_score = 0.0
-        if count > 1:
+        if count >= 1:
             avg_sub_score = echo.get_sub_score() / count
 
-        msg = f'声骸副词条平均分{avg_sub_score},{echo.get_score()}'
+        msg = f'声骸副词条平均分{avg_sub_score},{"高" if self.lost_cost[echo.get_cost()] > avg_sub_score else "低"}于最低值{avg_sub_score - self.lost_cost[echo.get_cost()] if self.lost_cost[echo.get_cost()] > avg_sub_score else self.lost_cost[echo.get_cost()] - avg_sub_score}'
         self.log_info(msg)
         return True
 
     def identifyExistingEcho(self):
         echos = self.echos
-        # self.sleep(0.5)
         # self.click_box(box=Box(500, 700, to_x=501, to_y=701))
         # previous = ocr_echo(self, "echo_change")
 
+        self.sleep(0.5)
         self.click_box(box=Box(53, 217, to_x=183, to_y=348))
         this = ocr_echo(self, "echo_change")
         # if not contrast_echo(previous, this):
         previous = this
 
+        self.sleep(0.5)
         self.click_box(box=Box(66, 437, to_x=169, to_y=542))
         this = ocr_echo(self, "echo_change")
+
         if not contrast_echo(previous, this):
             echos.append(previous)
             echos.append(this)
             previous = this
 
+        self.sleep(0.5)
         self.click_box(box=Box(66, 581, to_x=169, to_y=586))
         this = ocr_echo(self, "echo_change")
         if not contrast_echo(previous, this):
             echos.append(this)
             previous = this
 
+        self.sleep(0.5)
         self.click_box(box=Box(66, 725, to_x=169, to_y=830))
         this = ocr_echo(self, "echo_change")
         if not contrast_echo(previous, this):
             echos.append(this)
             previous = this
 
+        self.sleep(0.5)
         self.click_box(box=Box(66, 869, to_x=169, to_y=974))
         this = ocr_echo(self, "echo_change")
         if not contrast_echo(previous, this):
             echos.append(this)
-
         self.echos = echos
