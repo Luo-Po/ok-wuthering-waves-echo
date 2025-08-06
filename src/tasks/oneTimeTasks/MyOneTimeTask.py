@@ -1,7 +1,7 @@
 import re
 
 from src.tasks.MyBaseTask import MyBaseTask
-from src.wuwa_scanner_utils import box_list
+from src.utils.wuwa_scanner_utils import box_list
 
 
 class MyOneTimeTask(MyBaseTask):
