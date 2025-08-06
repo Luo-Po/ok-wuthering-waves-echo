@@ -7,7 +7,7 @@ def get_active_window():
     return win32gui.GetForegroundWindow()
 
 
-def set_window_topmost(hwnd: int = get_active_window(), topmost: bool = True):
+def set_window_topmost(hwnd: int, topmost: bool = True):
     """
     设置窗口置顶状态
     :param hwnd: 窗口句柄
@@ -22,7 +22,7 @@ def set_window_topmost(hwnd: int = get_active_window(), topmost: bool = True):
     )
 
 
-def is_window_topmost(hwnd: int = get_active_window()) -> bool:
+def is_window_topmost(hwnd: int) -> bool:
     """检查窗口是否置顶"""
     style = win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE)
     return bool(style & win32con.WS_EX_TOPMOST)

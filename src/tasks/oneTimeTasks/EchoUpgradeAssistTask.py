@@ -3,7 +3,7 @@ from ok import BaseTask, Box
 from src.Echo import contrast_echo
 from src.echo_scorer import getIdByName
 from src.utils.windows_utils import set_window_topmost, get_active_window
-from src.wuwa_scanner_utils import ocr_echo, is_page
+from src.utils.wuwa_scanner_utils import ocr_echo, is_page
 
 
 class EchoUpgradeAssistTask(BaseTask):
