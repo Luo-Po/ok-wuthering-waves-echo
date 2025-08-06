@@ -3967,6 +3967,8 @@ cost_list = [
     {"id": 97, "name": "釉变幼岩", "type": "Cost1"},
     {"id": 98, "name": "梦魇·辉萤军势", "type": "Cost4"},
     {"id": 99, "name": "共鸣回响·芙露德莉斯", "type": "Cost4"},
+    {"id": 99, "name": "共鸣回响·", "type": "Cost4"},
+    {"id": 99, "name": "共鸣回响", "type": "Cost4"},
     {"id": 100, "name": "慈悲节使", "type": "Cost1"},
     {"id": 101, "name": "赦罪节使", "type": "Cost1"},
     {"id": 102, "name": "卫冕节使", "type": "Cost1"},

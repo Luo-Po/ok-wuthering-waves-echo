@@ -1,15 +1,16 @@
 import re
+from typing import List
 
 from ok import Box
 
 from src.Echo import Echo, EchoAttr
 from src.data import cost_list
-from src.echo_scorer import sum_scores, sum_sub_scores
+from src.echo_scorer import sum_sub_scores, sum_main_score
 
 cases = {
-    "攻击": "攻击",
-    "生命": "生命",
-    "防御": "防御",
+    "攻击": "大攻击",
+    "生命": "大生命",
+    "防御": "大防御",
     "共鸣效率": "共鸣效率",
     "普攻伤害加成": "普攻伤害",
     "重击伤害加成": "重击伤害",
@@ -58,9 +59,9 @@ match_list = {
     "level": re.compile(
         r'^\+([0-9]|1[0-9]|2[0-5])$'),
     "main": re.compile(
-        r'^((\d{1,3}(?:\.\d%)?)|暴击|暴击伤害|攻击|生命|防御|共鸣效率|治疗效果加成|((([衍行])射|气动|热熔|冷凝|(湮灭|灭)|导电)伤害加成))$'),
+        r'^((.*\d{1,3}(?:\.\d%)?)|暴击|暴击伤害|攻击|生命|防御|共鸣效率|治疗效果加成|((([衍行])射|气动|热熔|冷凝|(湮灭|灭)|导电)伤害加成))$'),
     "sub": re.compile(
-        r'^((\d{1,3}(?:\.\d%)?)|(暴击|暴击伤害|攻击|生命|防御|共鸣效率|((普攻|重击|共鸣技能|共鸣解放)伤害加成)))$'),
+        r'^((.*\d{1,3}(?:\.\d%)?)|暴击|暴击伤害|攻击|生命|防御|共鸣效率|((普攻|重击|共鸣技能|共鸣解放)伤害加成))$'),
     "page": re.compile(
         r'^(属性详情|武器|技能|共鸣链|档案|数据坞|声骸图鉴|合鸣图鉴|数据融合|数据重构|声骸强化|声骸调谐|COST|((武器|声骸|补给|资源|素材|任务|特殊)|\d{1,4}/[123]000))$')
 }
@@ -111,79 +112,159 @@ def which_page(task) -> str:
 
 
 def ocr_echo(task, page) -> Echo:
+
     task.sleep(0.2)
     echo = Echo()
     try:
+        name = ocr_name(task, page).replace("梦魔", "梦魇")
+        echo.set_name(name)
+        # print(f'{name}')
+        cost = 0
+        for b in cost_list:
+            if b["name"] == name:
+                cost = b["type"]
+        echo.set_cost(cost)
+        # print(f'{cost}')
+        level = ocr_level(task, page)
+        echo.set_level(level)
+        # print(f'{level}')
+        main_attr = ocr_main(task, page)
+        echo.set_main(main_attr)
+        # print(f'{main_attr}')
+        sub_attrs = ocr_sub_attr(task, page)
+        echo.set_sub_attrs(sub_attrs)
+        # print(f'{sub_attrs}')
+
+        role = task.role
+
+        main_score = sum_main_score(echo, role)
+        echo.set_main_score(main_score)
+
+        sub_score = sum_sub_scores(echo, role)
+        echo.set_sub_score(sub_score)
+
+        score = main_score + sub_score
+        echo.set_score(score)
+
+    except BaseException as e:
+        print(f'ocr_echo failed for {e.args}')
+    return echo
+
+
+def ocr_name(task, page, i=0) -> str:
+    try:
         name_boxs = task.ocr(box=box_list[page]["name"])
-        level_boxs = task.ocr(match=match_list["level"], box=box_list[page]["level"])
-        main_attr_boxs = task.ocr(match=match_list["main"], box=box_list[page]["main"])
-        sub_boxs = task.ocr(match=match_list["sub"], box=box_list[page]["sub"])
-
         name = name_boxs[0].name
-        main_attr = EchoAttr(cases[main_attr_boxs[0].name], main_attr_boxs[1].name)
-        a = True
-        attr = ""
-        for sub in sub_boxs:
-            if a:
-                attr = sub.name
-                a = False
-            else:
-                if attr == "生命":
-                    if sub.name.endswith("%"):
-                        attr = "大生命"
-                    else:
-                        attr = "小生命"
-                elif attr == "防御":
-                    if sub.name.endswith("%"):
-                        attr = "大防御"
-                    else:
-                        attr = "小防御"
-                elif attr == "攻击":
-                    if sub.name.endswith("%"):
-                        attr = "大攻击"
-                    else:
-                        attr = "小攻击"
-                elif attr in cases:
-                    attr = cases[attr]
-                else:
-                    task.log_error(f'未扫描到{attr}的属性')
-                if sub.name in cases:
-                    task.log_error(f'未扫描到{attr}的数值')
-                    attr = cases[sub.name]
-                echo.add_sub_attr(attr, sub.name)
-                a = True
-
-        try:
-            level = int(level_boxs[0].name)
-        except IndexError:
-            level = len(echo.get_sub_attr_list()) * 5
-        if level == 0:
-            level = len(echo.get_sub_attr_list()) * 5
-
-        cost = ""
+        cost = 0
         for b in cost_list:
             if b["name"] == name:
                 cost = b["type"]
 
-        echo.set_name(name)
-        echo.set_cost(cost)
-        echo.set_level(level)
-        echo.set_main(main_attr)
-        try:
-            role = task.role
-            score = sum_scores(echo, role)
-            main_score = sum_scores(echo, role)
-            sub_score = sum_sub_scores(echo, role)
-        except:
-            score = 0
-            main_score = 0
-            sub_score = 0
+    except BaseException:
+        if i == 4:
+            raise
+        name = ocr_name(task, page, i + 1)
+    return name
 
-        echo.set_score(score)
-        echo.set_main_score(main_score)
-        echo.set_sub_score(sub_score)
-    except ImportError:
-        echo = ocr_echo(task, page)
-    except IndexError:
-        echo = ocr_echo(task, page)
-    return echo
+
+def ocr_level(task, page, i=0):
+    try:
+        level_boxs = task.ocr(box=box_list[page]["level"])
+        return int(level_boxs[0].name.lstrip('+'))
+    except BaseException:
+        if i == 4:
+            return None
+        return ocr_level(task, page, i + 1)
+
+
+def ocr_main(task, page, i=0):
+    try:
+        main_attr_boxs = task.ocr(match=match_list["main"], box=box_list[page]["main"])
+        # print(f'main_attr_boxs:{len(main_attr_boxs)},{[box for box in main_attr_boxs]}')
+        return EchoAttr(cases[main_attr_boxs[0].name], main_attr_boxs[1].name)
+    except BaseException:
+        if i == 4:
+            return None
+        return ocr_main(task, page, i + 1)
+
+
+def ocr_sub_attr(task, page, i=0) -> List[EchoAttr]:
+    try:
+        a = True
+        attr = ""
+        echo_attrs: List[EchoAttr] = []
+        sub_boxs = task.ocr(match=match_list["sub"], box=box_list[page]["sub"])
+        # print(f'sub_boxs:{len(sub_boxs)},{[box.name for box in sub_boxs]}')
+        for sub in sub_boxs:
+
+            if a:
+                attr = sub.name
+                a = False
+            else:
+                value = sub.name.lstrip('.·')
+                if value.endswith("%"):
+                    attr = cases[attr]
+                else:
+                    if attr == "生命":
+                        attr = "小生命"
+                    elif attr == "防御":
+                        attr = "小防御"
+                    elif attr == "攻击":
+                        attr = "小攻击"
+                # print(f'attr:{attr},value:{value}')
+                echo_attrs.append(EchoAttr(attr, value))
+                a = True
+    except Exception as e:
+        if i == 4:
+            return None
+        task.log_error(f'重新执行扫描')
+        echo_attrs = ocr_sub_attr(task, page, i + 1)
+    return echo_attrs
+
+
+def extract_percentage(s):
+    """
+    从OCR字符串中提取百分数值，返回格式化后的百分数字符串
+
+    参数:
+        s (str): 可能包含前缀噪点('.', '·')的数字字符串
+
+    返回:
+        str: 格式化后的百分数字符串（如"12%" 或 "12.3%"）
+    """
+    # 清理开头的噪点字符
+    cleaned = s.lstrip('.·')
+
+    # 如果清理后为空，返回0%
+    if not cleaned:
+        return "0%"
+
+    # 使用正则匹配数字模式（整数或带一位小数）
+    match = re.match(r'^(\d{1,2})(\.\d)?', cleaned)
+    if not match:
+        return "0%"
+
+    # 提取匹配到的数字部分
+    num_str = match.group(0)
+
+    # 处理整数情况
+    if '.' not in num_str:
+        try:
+            value = int(num_str)
+            if value <= 50:
+                return f"{value}%"
+            # 超过50%按0%处理
+            return "0%"
+        except ValueError:
+            return "0%"
+
+    # 处理小数情况
+    try:
+        value = float(num_str)
+        if value <= 50.0:
+            # 保留一位小数格式化
+            return f"{value:.1f}%"
+        # 超过50.0%按0%处理
+        return "0%"
+    except ValueError:
+        return "0%"

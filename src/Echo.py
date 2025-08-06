@@ -84,7 +84,7 @@ class Echo:
 
     def set_cost(self, new):
         """设置花费"""
-        self.__cost = new
+        self.__cost = int(new.replace("Cost", ""))
         return self
 
     def get_level(self) -> int:
@@ -121,13 +121,16 @@ class Echo:
 
         return self.__sub_attr_list[index]
 
-    def add_sub_attr(self, property___name, property_value):
+    def add_sub_attr(self, property_name, property_value):
         """添加新属性到末尾"""
         if len(self.__sub_attr_list) > 5:
             raise IndexError("属性索引超出范围")
-        self.__sub_attr_list.append(EchoAttr(property___name, property_value))
+        self.__sub_attr_list.append(EchoAttr(property_name, property_value))
         return self
 
+    def set_sub_attrs(self, echo_attrs: List[EchoAttr]):
+        self.__sub_attr_list = echo_attrs
+        return self
     def set_sub_attr(self, index, new_attr=None, new_value=None):
         """
         更新指定索引处的属性
@@ -149,7 +152,7 @@ class Echo:
         """查找特定名称的所有属性"""
         return [prop for prop in self.__sub_attr_list if prop == property___name]
 
-    def get_score(self):
+    def get_score(self) -> float:
         """获取得分"""
         return self.__score
 
@@ -158,7 +161,7 @@ class Echo:
         self.__score = new
         return self
 
-    def get_main_score(self):
+    def get_main_score(self) -> float:
         """获取主词条得分"""
         return self.__main_score
 
@@ -167,7 +170,7 @@ class Echo:
         self.__main_score = new
         return self
 
-    def get_sub_score(self):
+    def get_sub_score(self) -> float:
         """获取副词条得分"""
         return self.__sub_score
 

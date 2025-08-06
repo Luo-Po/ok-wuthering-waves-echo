@@ -4,7 +4,7 @@
 
 
 from src.Echo import Echo, EchoAttr
-from src.data import role_list, rule_list, role_sum_property, main_attr_map
+from src.data import role_list, rule_list, role_sum_property
 
 base_attr_map = {
     1: EchoAttr("小生命", "2280"),
@@ -39,7 +39,7 @@ def sum_scores(echo: Echo, role):
     if not echo or not role:
         return 0.0
 
-    main_attr_score = count_main_attr(echo, role)
+    main_attr_score = sum_main_score(echo, role)
     echo.set_main_score(main_attr_score)
 
     sub_scores = sum_sub_scores(echo, role)
@@ -51,12 +51,12 @@ def sum_scores(echo: Echo, role):
 def sum_sub_scores(echo: Echo, role) -> float:
     rel = 0.0
     for echoAttr in echo.get_sub_attr_list():
-        rel += sum_sub_score(echoAttr, role)
+        rel += sum_score(echoAttr, role)
     echo.set_sub_score(rel)
     return round(rel, 2)
 
 
-def sum_sub_score(echo_attr: EchoAttr, role) -> float:
+def sum_score(echo_attr: EchoAttr, role) -> float:
     """计算词条分数"""
     if role is None or echo_attr is None:
         print("异常：数据关联角色失败。")
@@ -109,24 +109,27 @@ def sum_sub_score(echo_attr: EchoAttr, role) -> float:
         return 0.0
 
 
-def count_main_attr2(echo: Echo, role):
+def sum_main_score1(echo: Echo, role):
+    """仅计算主词条属性分数"""
+    main_attr = echo.get_main_attr()
+    print(f'main_attr:{main_attr}')
+    main_score = sum_score(main_attr, role) if main_attr else 0.0
+    return round(main_score, 2)
+
+
+def sum_main_score2(echo: Echo, role):
     """仅计算基础属性分数"""
     base_attr = base_attr_map.get(echo.get_cost(), None)
-    if base_attr:
-        return sum_sub_score(base_attr, role)
-    return 0.0
+    print(f'base_attr:{base_attr}')
+    base_score = sum_score(base_attr, role) if base_attr else 0.0
+    return round(base_score, 2)
 
 
-def count_main_attr(echo: Echo, role):
+def sum_main_score(echo: Echo, role):
     """计算主属性分数（含基础属性）"""
-    # 计算基础属性分数
-    base_score = count_main_attr2(echo, role)
-
     # 计算主属性分数
-    main_attr = main_attr_map.get(echo.get_main_attr(), None)
-    main_score = sum_sub_score(
-        main_attr, role
-    ) if main_attr else 0.0
-
-    echo.set_main_score(main_score)
+    main_score = sum_main_score1(echo, role)
+    # 计算基础属性分数
+    base_score = sum_main_score2(echo, role)
+    echo.set_main_score(round(base_score + main_score, 2))
     return round(base_score + main_score, 2)
