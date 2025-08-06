@@ -1,8 +1,8 @@
 import yaml
 from ok import TriggerTask
 
-from src.wuwa_controller_utils import click_echo_box, scroll_echo_list
-from src.wuwa_scanner_utils import is_page, ocr_echo
+from src.utils.wuwa_controller_utils import click_echo_box, scroll_echo_list
+from src.utils.wuwa_scanner_utils import is_page, ocr_echo
 
 
 class WuWaEchoScannerTask(TriggerTask):
