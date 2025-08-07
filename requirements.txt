@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-ok-script==0.0.610
+ok-script==0.0.604
     # via -r requirements.in
 onnxocr-ppocrv4==0.0.5
     # via -r requirements.in
@@ -20,7 +20,7 @@ darkdetect==0.8.0
     # via pyside6-fluent-widgets
 idna==3.10
     # via requests
-numpy~=2.3.2
+numpy~=2.2.6
     # via
     #   opencv-python
     #   openvino
