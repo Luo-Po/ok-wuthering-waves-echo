@@ -1,7 +1,8 @@
-name: "ok-boilerplate"
+name: "ok-WWE"
+uses: ok-oldking/pyappify-action@v1.0.18
 uac: true
 profiles:
-  - name: "Release"
+  - name: "ok-WWE Release 1.0"
     git_url: "https://github.com/ok-oldking/ok-script-boilerplate"
     admin: true
     main_script: "main.py"
