@@ -19,6 +19,15 @@ base_attr_map = {
 
 
 def getIdByName(name):
+    """
+    根据角色名称获取角色ID
+    
+    参数:
+        name (str): 角色名称
+    
+    返回:
+        int or None: 角色ID，如果找不到则返回None
+    """
     for role in role_list:
         if role["name"] == name:
             return role["id"]
@@ -26,7 +35,16 @@ def getIdByName(name):
 
 
 def check_ming_config(role_id, role_sum_property):
-    """校验角色是否配置了命座权重参数"""
+    """
+    校验角色是否配置了命座权重参数
+    
+    参数:
+        role_id (int): 角色ID
+        role_sum_property (list): 角色属性配置列表
+    
+    返回:
+        bool: 如果配置了命座权重参数则返回True，否则返回False
+    """
     for item in role_sum_property:
         if item["id"] == role_id:
             if "mzProperty" in item:
@@ -35,7 +53,16 @@ def check_ming_config(role_id, role_sum_property):
 
 
 def sum_scores(echo: Echo, role):
-    """计算声骸总得分"""
+    """
+    计算声骸总得分
+    
+    参数:
+        echo (Echo): 声骸(回声)对象
+        role (dict): 角色数据字典
+    
+    返回:
+        float: 声骸的总得分，保留两位小数
+    """
     if not echo or not role:
         return 0.0
 
@@ -49,6 +76,16 @@ def sum_scores(echo: Echo, role):
 
 
 def sum_sub_scores(echo: Echo, role) -> float:
+    """
+    计算声骸副属性总得分
+    
+    参数:
+        echo (Echo): 声骸(回声)对象
+        role (dict): 角色数据字典
+    
+    返回:
+        float: 声骸的副属性总得分，保留两位小数
+    """
     rel = 0.0
     for echoAttr in echo.get_sub_attr_list():
         rel += sum_score(echoAttr, role)
@@ -57,7 +94,19 @@ def sum_sub_scores(echo: Echo, role) -> float:
 
 
 def sum_score(echo_attr: EchoAttr, role) -> float:
-    """计算词条分数"""
+    """
+    计算词条分数
+    
+    参数:
+        echo_attr (EchoAttr): 声骸属性对象
+        role (dict): 角色数据字典
+    
+    返回:
+        float: 词条的得分，保留两位小数
+    
+    异常:
+        KeyError: 当计算分数时缺少关键字段时抛出
+    """
     if role is None or echo_attr is None:
         print("异常：数据关联角色失败。")
         return 0.0
@@ -110,7 +159,16 @@ def sum_score(echo_attr: EchoAttr, role) -> float:
 
 
 def sum_main_score1(echo: Echo, role):
-    """仅计算主词条属性分数"""
+    """
+    仅计算主词条属性分数
+    
+    参数:
+        echo (Echo): 声骸(回声)对象
+        role (dict): 角色数据字典
+    
+    返回:
+        float: 主词条属性的得分，保留两位小数
+    """
     main_attr = echo.get_main_attr()
     print(f'main_attr:{main_attr}')
     main_score = sum_score(main_attr, role) if main_attr else 0.0
@@ -118,7 +176,16 @@ def sum_main_score1(echo: Echo, role):
 
 
 def sum_main_score2(echo: Echo, role):
-    """仅计算基础属性分数"""
+    """
+    仅计算基础属性分数
+    
+    参数:
+        echo (Echo): 声骸(回声)对象
+        role (dict): 角色数据字典
+    
+    返回:
+        float: 基础属性的得分，保留两位小数
+    """
     base_attr = base_attr_map.get(echo.get_cost(), None)
     print(f'base_attr:{base_attr}')
     base_score = sum_score(base_attr, role) if base_attr else 0.0
@@ -126,7 +193,16 @@ def sum_main_score2(echo: Echo, role):
 
 
 def sum_main_score(echo: Echo, role):
-    """计算主属性分数（含基础属性）"""
+    """
+    计算主属性分数（含基础属性）
+    
+    参数:
+        echo (Echo): 声骸(回声)对象
+        role (dict): 角色数据字典
+    
+    返回:
+        float: 主属性的总得分（含基础属性），保留两位小数
+    """
     # 计算主属性分数
     main_score = sum_main_score1(echo, role)
     # 计算基础属性分数

@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import re
 from typing import List
 
@@ -7,6 +10,7 @@ from src.Echo import Echo, EchoAttr
 from src.data import cost_list
 from src.echo_scorer import sum_sub_scores, sum_main_score
 
+# 属性映射字典，将游戏中显示的属性名称映射为内部使用的属性名称
 cases = {
     "攻击": "大攻击",
     "生命": "大生命",
@@ -29,6 +33,7 @@ cases = {
     "导电伤害加成": "属伤",
 }
 
+# 界面元素坐标区域字典，定义游戏中各个界面元素的位置和大小
 box_list = {
     "page": Box(0, 0, to_x=700, to_y=300),
     "echo_change": {
@@ -53,6 +58,7 @@ box_list = {
 
 }
 
+# 正则表达式匹配字典，用于识别游戏中的各种文本信息
 match_list = {
     "cost": re.compile(
         r'^COST [134]$'),
@@ -66,6 +72,7 @@ match_list = {
         r'^(属性详情|武器|技能|共鸣链|档案|数据坞|声骸图鉴|合鸣图鉴|数据融合|数据重构|声骸强化|声骸调谐|COST|((武器|声骸|补给|资源|素材|任务|特殊)|\d{1,4}/[123]000))$')
 }
 
+# 页面映射字典，将游戏中显示的页面名称映射为内部使用的页面标识
 pages = {
     "属性详情": "role_attr",
     "武器": "role_weapon",
@@ -92,10 +99,29 @@ pages = {
 
 
 def is_page(task, page):
+    """
+    检查当前页面是否为指定页面
+    
+    参数:
+        task: 任务对象，用于执行OCR操作
+        page (str): 要检查的页面标识
+    
+    返回:
+        bool: 如果当前页面是指定页面则返回True，否则返回False
+    """
     return page == which_page(task)
 
 
 def which_page(task) -> str:
+    """
+    获取当前页面的标识
+    
+    参数:
+        task: 任务对象，用于执行OCR操作
+    
+    返回:
+        str: 当前页面的标识，如果无法识别则返回空字符串
+    """
     page_boxs = task.ocr(match=match_list["page"], box=box_list["page"])
     if len(page_boxs) == 0:
         return ""
@@ -112,6 +138,16 @@ def which_page(task) -> str:
 
 
 def ocr_echo(task, page) -> Echo:
+    """
+    从游戏界面扫描并解析声骸(回声)数据
+    
+    参数:
+        task: 任务对象，用于执行OCR操作和获取角色信息
+        page (str): 页面标识，指定要扫描的页面类型
+    
+    返回:
+        Echo: 解析后的声骸(回声)对象，如果解析失败则返回空对象
+    """
 
     task.sleep(0.2)
     echo = Echo()
@@ -152,6 +188,20 @@ def ocr_echo(task, page) -> Echo:
 
 
 def ocr_name(task, page, i=0) -> str:
+    """
+    从游戏界面扫描并解析声骸(回声)名称
+    
+    参数:
+        task: 任务对象，用于执行OCR操作
+        page (str): 页面标识，指定要扫描的页面类型
+        i (int): 递归重试次数，默认为0
+    
+    返回:
+        str: 解析后的声骸(回声)名称
+    
+    异常:
+        BaseException: 如果重试4次后仍解析失败则抛出异常
+    """
     try:
         name_boxs = task.ocr(box=box_list[page]["name"])
         name = name_boxs[0].name
@@ -168,6 +218,17 @@ def ocr_name(task, page, i=0) -> str:
 
 
 def ocr_level(task, page, i=0):
+    """
+    从游戏界面扫描并解析声骸(回声)等级
+    
+    参数:
+        task: 任务对象，用于执行OCR操作
+        page (str): 页面标识，指定要扫描的页面类型
+        i (int): 递归重试次数，默认为0
+    
+    返回:
+        int or None: 解析后的声骸(回声)等级，如果重试4次后仍解析失败则返回None
+    """
     try:
         level_boxs = task.ocr(box=box_list[page]["level"])
         return int(level_boxs[0].name.lstrip('+'))
@@ -178,6 +239,17 @@ def ocr_level(task, page, i=0):
 
 
 def ocr_main(task, page, i=0):
+    """
+    从游戏界面扫描并解析声骸(回声)主属性
+    
+    参数:
+        task: 任务对象，用于执行OCR操作
+        page (str): 页面标识，指定要扫描的页面类型
+        i (int): 递归重试次数，默认为0
+    
+    返回:
+        EchoAttr or None: 解析后的声骸(回声)主属性对象，如果重试4次后仍解析失败则返回None
+    """
     try:
         main_attr_boxs = task.ocr(match=match_list["main"], box=box_list[page]["main"])
         # print(f'main_attr_boxs:{len(main_attr_boxs)},{[box for box in main_attr_boxs]}')
@@ -189,6 +261,20 @@ def ocr_main(task, page, i=0):
 
 
 def ocr_sub_attr(task, page, i=0) -> List[EchoAttr]:
+    """
+    从游戏界面扫描并解析声骸(回声)副属性列表
+    
+    参数:
+        task: 任务对象，用于执行OCR操作
+        page (str): 页面标识，指定要扫描的页面类型
+        i (int): 递归重试次数，默认为0
+    
+    返回:
+        List[EchoAttr]: 解析后的声骸(回声)副属性列表
+    
+    异常:
+        BaseException: 如果重试4次后仍解析失败则抛出异常
+    """
     try:
         a = True
         attr = ""

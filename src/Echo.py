@@ -1,7 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 from typing import List
 
 
 class EchoAttr:
+    """回声属性类
+
+    用于表示回声的单个属性，包含属性名称和属性值
+
+    Attributes:
+        __attr: str - 属性名称
+        __value: float - 属性值
+    """
     """回音属性"""
     __attr: str
     __value: float
@@ -27,6 +37,20 @@ class EchoAttr:
 
 
 class Echo:
+    """回声类
+
+    用于表示鸣潮游戏中的回声物品，包含回声的名称、花费、等级、属性等信息
+
+    Attributes:
+        __name: str - 回声名称
+        __cost: int - 回声花费
+        __level: int - 回声等级
+        __main_attr: EchoAttr - 主属性
+        __sub_attr_list: List[EchoAttr] - 副属性列表
+        __score: float - 回声总得分
+        __main_score: float - 主属性得分
+        __sub_score: float - 副属性得分
+    """
     __name: str
     __cost: int
     __level: int
@@ -181,6 +205,17 @@ class Echo:
 
 
 def contrast_echo(a: Echo, b: Echo) -> bool:
+    """比较两个回声是否相同
+
+    比较两个回声对象的所有属性是否完全相同
+
+    Args:
+        a: Echo - 第一个回声对象
+        b: Echo - 第二个回声对象
+
+    Returns:
+        bool - 如果两个回声完全相同则返回True，否则返回False
+    """
     if not a.get_cost() == b.get_cost():
         return False
     elif not a.get_name == b.get_name:

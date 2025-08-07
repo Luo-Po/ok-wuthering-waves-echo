@@ -16,20 +16,30 @@ key_config_option = ConfigOption('Game Hotkey Config', {  # 全局配置示例
 
 
 def calculate_pc_exe_path(running_path):
+    """计算游戏可执行文件的路径
+
+    根据当前运行路径向上回溯，找到游戏可执行文件的位置
+
+    Args:
+        running_path: str - 当前程序的运行路径
+
+    Returns:
+        str - 游戏可执行文件的完整路径
+    """
     game_exe_folder = Path(running_path).parents[3]
     return str(game_exe_folder / "Wuthering Waves.exe")
 
 
 def make_bottom_right_black(frame):
-    """
-    Changes a portion of the frame's pixels at the bottom right to black.
+    """将帧图像右下角的部分像素改为黑色
+
+    用于处理截图，将右下角可能包含敏感信息或干扰元素的区域涂黑
 
     Args:
-        frame: The input frame (NumPy array) from OpenCV.
+        frame: numpy.ndarray - OpenCV输入帧
 
     Returns:
-        The modified frame with the bottom-right corner blackened.  Returns the original frame
-        if there's an error (e.g., invalid frame).
+        numpy.ndarray - 修改后的帧，如果发生错误则返回原始帧
     """
     try:
         height, width = frame.shape[:2]  # Get height and width
