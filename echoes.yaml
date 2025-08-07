@@ -1,1 +1,3190 @@
-[]
+- name: 哀声
+  cost: 4
+  sonata: 浮星祛暗
+  level: 5
+  main:
+    attr: 暴伤
+    value: 15.8%
+  sub:
+    - attr: 暴伤
+      value: 12.6%
+- name: 梦魇·赫卡忒
+  cost: 4
+  sonata: ''
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴击
+      value: 9.9%
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 小生命
+      value: '470'
+    - attr: 共鸣效率
+      value: 12.4%
+    - attr: 暴伤
+      value: 12.6%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 大生命
+      value: 10.1%
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 共鸣效率
+      value: 6.8%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 小生命
+      value: '430'
+    - attr: 大防御
+      value: 10.0%
+    - attr: 普攻伤害
+      value: 7.9%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 小防御
+      value: '50'
+    - attr: 暴击
+      value: 6.9%
+    - attr: 小生命
+      value: '390'
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 暴击
+      value: 10.5%
+    - attr: 大生命
+      value: 7.9%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 重击伤害
+      value: 6.4%
+    - attr: 小生命
+      value: '390'
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 流云逝尽之空
+  level: 25
+  main:
+    attr: 大防御
+    value: 41.8%
+  sub:
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 大生命
+      value: 11.6%
+- name: 赫卡忒
+  cost: 4
+  sonata: 高天共奏之曲
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 大生命
+      value: 10.9%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 小生命
+      value: '470'
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 小生命
+      value: '430'
+    - attr: 暴击
+      value: 6.9%
+    - attr: 普攻伤害
+      value: 8.6%
+    - attr: 共鸣效率
+      value: 8.4%
+    - attr: 暴伤
+      value: 12.6%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 共鸣效率
+      value: 9.2%
+    - attr: 普攻伤害
+      value: 8.6%
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 小防御
+      value: '50'
+- name: 角
+  cost: 4
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 暴击
+      value: 10.5%
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 大防御
+      value: 10.9%
+- name: 角
+  cost: 4
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴击
+      value: 6.9%
+    - attr: 暴伤
+      value: 19.8%
+    - attr: 小攻击
+      value: '40'
+    - attr: 普攻伤害
+      value: 6.4%
+    - attr: 小生命
+      value: '390'
+- name: 无妄者
+  cost: 4
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 9.3%
+    - attr: 小生命
+      value: '470'
+    - attr: 小攻击
+      value: '30'
+    - attr: 大攻击
+      value: 10.9%
+- name: 无妄者
+  cost: 4
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 解放伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 8.1%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大攻击
+      value: 7.1%
+- name: 无妄者
+  cost: 4
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 小攻击
+      value: '40'
+    - attr: 小生命
+      value: '360'
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 8.7%
+- name: 异构武装
+  cost: 4
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴击
+      value: 8.1%
+    - attr: 大防御
+      value: 9.0%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 小防御
+      value: '50'
+- name: 无归的谬误
+  cost: 4
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 治疗
+    value: 26.4%
+  sub:
+    - attr: 大生命
+      value: 7.1%
+    - attr: 共鸣效率
+      value: 6.8%
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 小攻击
+      value: '30'
+- name: 无归的谬误
+  cost: 4
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 治疗
+    value: 26.4%
+  sub:
+    - attr: 共鸣效率
+      value: 9.2%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 小防御
+      value: '50'
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 小生命
+      value: '430'
+- name: 梦魇·凯尔匹
+  cost: 4
+  sonata: ''
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大防御
+      value: 13.8%
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 梦魇·哀声莺
+  cost: 4
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 9.3%
+    - attr: 大防御
+      value: 12.8%
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 普攻伤害
+      value: 8.6%
+- name: 梦魇·哀声莺
+  cost: 4
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 共鸣效率
+      value: 7.6%
+    - attr: 大生命
+      value: 8.6%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大防御
+      value: 10.9%
+- name: 梦魇·哀声莺
+  cost: 4
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 小攻击
+      value: '40'
+    - attr: 暴击
+      value: 7.5%
+    - attr: 普攻伤害
+      value: 10.9%
+- name: 无常凶鹭
+  cost: 4
+  sonata: 轻云出月
+  level: 25
+  main:
+    attr: 大攻击
+    value: 33.0%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 小防御
+      value: '50'
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 暴击
+      value: 9.9%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 技能伤害
+      value: 7.9%
+- name: 燎照之骑
+  cost: 4
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 小攻击
+      value: '40'
+- name: 无妄者
+  cost: 4
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 解放伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 8.1%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大攻击
+      value: 7.1%
+- name: 无妄者
+  cost: 4
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 小攻击
+      value: '40'
+    - attr: 小生命
+      value: '360'
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 8.7%
+- name: 异构武装
+  cost: 4
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴击
+      value: 8.1%
+    - attr: 大防御
+      value: 9.0%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 小防御
+      value: '50'
+- name: 无归的谬误
+  cost: 4
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 治疗
+    value: 26.4%
+  sub:
+    - attr: 大生命
+      value: 7.1%
+    - attr: 共鸣效率
+      value: 6.8%
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 小攻击
+      value: '30'
+- name: 无归的谬误
+  cost: 4
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 治疗
+    value: 26.4%
+  sub:
+    - attr: 共鸣效率
+      value: 9.2%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 小防御
+      value: '50'
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 小生命
+      value: '430'
+- name: 梦魇·凯尔匹
+  cost: 4
+  sonata: ''
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大防御
+      value: 13.8%
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 梦魇·哀声莺
+  cost: 4
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 9.3%
+    - attr: 大防御
+      value: 12.8%
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 普攻伤害
+      value: 8.6%
+- name: 梦魇·哀声莺
+  cost: 4
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 共鸣效率
+      value: 7.6%
+    - attr: 大生命
+      value: 8.6%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大防御
+      value: 10.9%
+- name: 梦魇·哀声莺
+  cost: 4
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 小攻击
+      value: '40'
+    - attr: 暴击
+      value: 7.5%
+    - attr: 普攻伤害
+      value: 10.9%
+- name: 无常凶鹭
+  cost: 4
+  sonata: 轻云出月
+  level: 25
+  main:
+    attr: 大攻击
+    value: 33.0%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 小防御
+      value: '50'
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 暴击
+      value: 9.9%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 技能伤害
+      value: 7.9%
+- name: 燎照之骑
+  cost: 4
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 小攻击
+      value: '40'
+- name: 燎照之骑
+  cost: 4
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 暴伤
+    value: 44.0%
+  sub:
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 小攻击
+      value: '40'
+- name: 云闪之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 暴击
+    value: 22.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 共鸣效率
+      value: 8.4%
+    - attr: 大防御
+      value: 10.0%
+- name: 琉璃刀伶
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴击
+      value: 9.3%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 小生命
+      value: '430'
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 小防御
+      value: '60'
+- name: 琉璃刀伶
+  cost: 3
+  sonata: 高天共奏之曲
+  level: 25
+  main:
+    attr: 共鸣效率
+    value: 32.0%
+  sub:
+    - attr: 普攻伤害
+      value: 10.1%
+    - attr: 大防御
+      value: 11.8%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 小防御
+      value: '60'
+    - attr: 暴击
+      value: 10.5%
+- name: 浮灵偶
+  cost: 3
+  sonata: 高天共奏之曲
+  level: 25
+  main:
+    attr: 大攻击
+    value: 30.0%
+  sub:
+    - attr: 共鸣效率
+      value: 10.0%
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 大防御
+      value: 9.0%
+- name: 踏光兽
+  cost: 3
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 大生命
+      value: 10.9%
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 大攻击
+      value: 8.6%
+- name: 游鳞机枢
+  cost: 3
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 大生命
+      value: 10.9%
+    - attr: 重击伤害
+      value: 6.4%
+    - attr: 暴伤
+      value: 15.0%
+- name: 暗鬃狼
+  cost: 3
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 小防御
+      value: '60'
+    - attr: 暴击
+      value: 8.1%
+    - attr: 大生命
+      value: 10.1%
+    - attr: 共鸣效率
+      value: 6.8%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 暗鬃狼
+  cost: 3
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 大防御
+      value: 8.1%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 共鸣效率
+      value: 9.2%
+- name: 绿熔蜥
+  cost: 3
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 30.0%
+  sub:
+    - attr: 解放伤害
+      value: 7.1%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 重击伤害
+      value: 9.4%
+- name: 磐石守卫
+  cost: 3
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 共鸣效率
+      value: 10.0%
+    - attr: 大生命
+      value: 9.4%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 小生命
+      value: '430'
+    - attr: 大攻击
+      value: 7.9%
+- name: 磐石守卫
+  cost: 3
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 共鸣效率
+    value: 20.0%
+  sub:
+    - attr: 大生命
+      value: 10.9%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 重击伤害
+      value: 8.6%
+    - attr: 小生命
+      value: '540'
+    - attr: 暴击
+      value: 9.3%
+- name: 冥渊守卫
+  cost: 3
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 共鸣效率
+    value: 32.0%
+  sub:
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 小生命
+      value: '430'
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 普攻伤害
+      value: 8.6%
+- name: 奏谕乐师
+  cost: 3
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 小攻击
+      value: '40'
+    - attr: 技能伤害
+      value: 7.1%
+    - attr: 小生命
+      value: '470'
+    - attr: 重击伤害
+      value: 6.4%
+- name: 坚岩斗士
+  cost: 3
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 共鸣效率
+    value: 32.0%
+  sub:
+    - attr: 小生命
+      value: '430'
+    - attr: 暴击
+      value: 10.5%
+    - attr: 小防御
+      value: '60'
+    - attr: 普攻伤害
+      value: 8.6%
+    - attr: 大攻击
+      value: 10.9%
+- name: 梦魇·振铎乐师
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴击
+      value: 9.3%
+    - attr: 共鸣效率
+      value: 11.6%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 解放伤害
+      value: 8.6%
+- name: 荣光节使
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 重击伤害
+      value: 8.6%
+    - attr: 小防御
+      value: '50'
+- name: 荣光节使
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 小攻击
+      value: '50'
+- name: 飓力熊
+  cost: 3
+  sonata: 流云逝尽之空
+  level: 25
+  main:
+    attr: 大攻击
+    value: 30.0%
+  sub:
+    - attr: 小防御
+      value: '60'
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 共鸣效率
+      value: 9.2%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 6.9%
+- name: 重塑雕像的拳砾
+  cost: 3
+  sonata: 此间永驻之光
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 小攻击
+      value: '50'
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 小生命
+      value: '390'
+    - attr: 暴击
+      value: 6.9%
+    - attr: 大生命
+      value: 7.1%
+- name: 巨布偶
+  cost: 3
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 解放伤害
+      value: 8.6%
+- name: 凝水贵族
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 普攻伤害
+      value: 7.9%
+- name: 幻昼骑士
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 技能伤害
+      value: 9.4%
+- name: 巡游骑士
+  cost: 3
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 共鸣效率
+      value: 8.4%
+    - attr: 小生命
+      value: '320'
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 普攻伤害
+      value: 7.9%
+- name: 暗鬃狼
+  cost: 3
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 小防御
+      value: '50'
+    - attr: 共鸣效率
+      value: 7.6%
+    - attr: 普攻伤害
+      value: 8.6%
+- name: 暗鬃狼
+  cost: 3
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 9.3%
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 小生命
+      value: '430'
+- name: 刺玫菇
+  cost: 3
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 大防御
+      value: 11.8%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 9.3%
+- name: 坚岩斗士
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 共鸣效率
+    value: 32.0%
+  sub:
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 小攻击
+      value: '40'
+    - attr: 暴伤
+      value: 18.6%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 青羽鹭
+  cost: 3
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 属伤
+    value: 30.0%
+  sub:
+    - attr: 暴击
+      value: 8.7%
+    - attr: 小生命
+      value: '360'
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 梦魇·破霜猎手
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 普攻伤害
+      value: 8.6%
+    - attr: 小防御
+      value: '50'
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 大攻击
+      value: 10.9%
+- name: 梦魇·审判战士
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 小生命
+      value: '510'
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 小防御
+      value: '60'
+- name: 梦魇·审判战士
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 技能伤害
+      value: 7.1%
+    - attr: 小攻击
+      value: '40'
+    - attr: 普攻伤害
+      value: 7.9%
+- name: 苦信者的作俑
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 小防御
+      value: '50'
+    - attr: 共鸣效率
+      value: 7.6%
+    - attr: 技能伤害
+      value: 7.9%
+- name: 苦信者的作俑
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 小生命
+      value: '320'
+    - attr: 重击伤害
+      value: 11.6%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 普攻伤害
+      value: 6.4%
+    - attr: 解放伤害
+      value: 9.4%
+- name: 小翼龙·热熔
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大防御
+      value: 12.8%
+    - attr: 小生命
+      value: '510'
+- name: 小翼龙·热熔
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 共鸣效率
+      value: 8.4%
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 大生命
+      value: 7.9%
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 重击伤害
+      value: 9.4%
+- name: 欺诈奇藏
+  cost: 1
+  sonata: 高天共奏之曲
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 共鸣效率
+      value: 9.2%
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 大攻击
+      value: 7.9%
+- name: 工头布偶
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 小生命
+      value: '510'
+    - attr: 小攻击
+      value: '50'
+    - attr: 小防御
+      value: '60'
+- name: 魔术先生
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 小攻击
+      value: '50'
+    - attr: 普攻伤害
+      value: 11.6%
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 6.9%
+- name: 幽翎火
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 小生命
+      value: '540'
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 普攻伤害
+      value: 10.1%
+    - attr: 小防御
+      value: '50'
+    - attr: 大攻击
+      value: 9.4%
+- name: 风鬃狼
+  cost: 1
+  sonata: 高天共奏之曲
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大生命
+      value: 9.4%
+    - attr: 普攻伤害
+      value: 10.1%
+    - attr: 小生命
+      value: '510'
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 共鸣效率
+      value: 8.4%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 解放伤害
+      value: 6.4%
+- name: 火鬃狼
+  cost: 1
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 大防御
+      value: 11.8%
+- name: 巡徊猎手
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 19.8%
+    - attr: 小攻击
+      value: '40'
+    - attr: 重击伤害
+      value: 7.1%
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 小生命
+      value: '430'
+- name: 湮灭棱镜
+  cost: 1
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 共鸣效率
+      value: 12.4%
+    - attr: 小生命
+      value: '320'
+    - attr: 重击伤害
+      value: 10.1%
+- name: 冷凝棱镜
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 大攻击
+      value: 10.9%
+    - attr: 大防御
+      value: 10.0%
+    - attr: 解放伤害
+      value: 8.6%
+- name: 呼咻咻
+  cost: 1
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 大生命
+      value: 8.6%
+    - attr: 大攻击
+      value: 9.4%
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 重击伤害
+      value: 6.4%
+- name: 呼咻咻
+  cost: 1
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 重击伤害
+      value: 8.6%
+    - attr: 解放伤害
+      value: 7.9%
+    - attr: 小生命
+      value: '470'
+    - attr: 大防御
+      value: 11.8%
+- name: 呼咻咻
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 10.5%
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 大生命
+      value: 9.4%
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 解放伤害
+      value: 8.6%
+- name: 阿磁磁
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 大防御
+      value: 12.8%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 共鸣效率
+      value: 12.4%
+    - attr: 暴击
+      value: 6.3%
+- name: 鸣泣战士
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 普攻伤害
+      value: 10.9%
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 共鸣效率
+      value: 10.0%
+    - attr: 技能伤害
+      value: 7.9%
+- name: 裂变幼岩
+  cost: 1
+  sonata: 隐世回光
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 小防御
+      value: '40'
+    - attr: 大生命
+      value: 10.9%
+    - attr: 技能伤害
+      value: 6.4%
+    - attr: 小攻击
+      value: '40'
+    - attr: 暴伤
+      value: 17.4%
+- name: 梦魇·审判战士
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 暴伤
+      value: 19.8%
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 大防御
+      value: 12.8%
+- name: 梦魇·审判战士
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 小防御
+      value: '50'
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 苦信者的作俑
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 6.9%
+    - attr: 大防御
+      value: 12.8%
+    - attr: 重击伤害
+      value: 7.1%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 共鸣效率
+      value: 9.2%
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 大生命
+      value: 8.6%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 共鸣效率
+      value: 10.8%
+- name: 小翼龙·冷凝
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 25
+  main:
+    attr: 大生命
+    value: 22.8%
+  sub:
+    - attr: 大生命
+      value: 7.9%
+    - attr: 暴击
+      value: 8.1%
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 小生命
+      value: '510'
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 小翼龙·冷凝
+  cost: 1
+  sonata: 流云逝尽之空
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 小攻击
+      value: '50'
+- name: 欺诈奇藏
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 小攻击
+      value: '50'
+    - attr: 暴伤
+      value: 19.8%
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 大防御
+      value: 10.0%
+- name: 工头布偶
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 解放伤害
+      value: 7.9%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 小攻击
+      value: '40'
+- name: 魔术先生
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大防御
+      value: 11.8%
+    - attr: 技能伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 解放伤害
+      value: 7.1%
+- name: 幽翎火
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 小生命
+      value: '430'
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 暴伤
+      value: 18.6%
+- name: 风鬃狼
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 9.4%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 共鸣效率
+      value: 7.6%
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 小攻击
+      value: '50'
+- name: 融火虫
+  cost: 1
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 7.1%
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 技能伤害
+      value: 7.1%
+    - attr: 暴击
+      value: 10.5%
+    - attr: 暴伤
+      value: 17.4%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 暴击
+      value: 9.3%
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大防御
+      value: 10.0%
+    - attr: 大生命
+      value: 9.4%
+    - attr: 小防御
+      value: '50'
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 15.0%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大防御
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 大防御
+      value: 9.0%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 小生命
+      value: '430'
+    - attr: 技能伤害
+      value: 7.9%
+- name: 寒霜陆龟
+  cost: 1
+  sonata: 凝夜白霜
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 小攻击
+      value: '60'
+    - attr: 大防御
+      value: 10.9%
+    - attr: 暴伤
+      value: 12.6%
+- name: 刺玫菇
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大防御
+      value: 11.8%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 巡徊猎手
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 10.5%
+    - attr: 小攻击
+      value: '50'
+    - attr: 重击伤害
+      value: 8.6%
+    - attr: 大生命
+      value: 9.4%
+- name: 衍射棱镜
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 9.4%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 技能伤害
+      value: 10.9%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 暴伤
+      value: 13.8%
+- name: 审判战士
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 小攻击
+      value: '50'
+    - attr: 大生命
+      value: 8.6%
+    - attr: 小生命
+      value: '390'
+- name: 审判战士
+  cost: 1
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 小攻击
+      value: '50'
+    - attr: 重击伤害
+      value: 7.1%
+    - attr: 大防御
+      value: 12.8%
+- name: 审判战士
+  cost: 1
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 大生命
+      value: 7.9%
+    - attr: 暴击
+      value: 7.5%
+- name: 鸣泣战士
+  cost: 1
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 小防御
+      value: '60'
+    - attr: 重击伤害
+      value: 10.1%
+- name: 先锋幼岩
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 暴伤
+      value: 17.4%
+- name: 箭簇熊
+  cost: 3
+  sonata: ''
+  level: 15
+  main:
+    attr: 共鸣效率
+    value: 21.7%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 共鸣效率
+      value: 10.0%
+    - attr: 技能伤害
+      value: 7.9%
+- name: 紫羽鹭
+  cost: 3
+  sonata: 彻空冥雷
+  level: 15
+  main:
+    attr: 属伤
+    value: 20.4%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 普攻伤害
+      value: 10.1%
+    - attr: 大防御
+      value: 14.7%
+- name: 慈悲节使
+  cost: 1
+  sonata: 流云逝尽之空
+  level: 15
+  main:
+    attr: 大攻击
+    value: 12.2%
+  sub:
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 小攻击
+      value: '40'
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 大防御
+      value: 10.9%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 技能伤害
+      value: 6.4%
+    - attr: 小攻击
+      value: '50'
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 大攻击
+      value: 8.6%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 9.3%
+    - attr: 大防御
+      value: 14.7%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 9.4%
+- name: 魔术先生
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大防御
+      value: 11.8%
+    - attr: 技能伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 解放伤害
+      value: 7.1%
+- name: 幽翎火
+  cost: 1
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 小生命
+      value: '430'
+    - attr: 大攻击
+      value: 7.9%
+    - attr: 技能伤害
+      value: 7.9%
+    - attr: 暴伤
+      value: 18.6%
+- name: 风鬃狼
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 9.4%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 共鸣效率
+      value: 7.6%
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 小攻击
+      value: '50'
+- name: 融火虫
+  cost: 1
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 7.1%
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 技能伤害
+      value: 7.1%
+    - attr: 暴击
+      value: 10.5%
+    - attr: 暴伤
+      value: 17.4%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 普攻伤害
+      value: 7.9%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 暴击
+      value: 9.3%
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大防御
+      value: 10.0%
+    - attr: 大生命
+      value: 9.4%
+    - attr: 小防御
+      value: '50'
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 15.0%
+- name: 啾啾河豚
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大防御
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 大防御
+      value: 9.0%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 小生命
+      value: '430'
+    - attr: 技能伤害
+      value: 7.9%
+- name: 寒霜陆龟
+  cost: 1
+  sonata: 凝夜白霜
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 小攻击
+      value: '60'
+    - attr: 大防御
+      value: 10.9%
+    - attr: 暴伤
+      value: 12.6%
+- name: 刺玫菇
+  cost: 3
+  sonata: ''
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 大防御
+      value: 11.8%
+    - attr: 暴击
+      value: 8.7%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 巡徊猎手
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+    - attr: 暴击
+      value: 10.5%
+    - attr: 小攻击
+      value: '50'
+    - attr: 重击伤害
+      value: 8.6%
+    - attr: 大生命
+      value: 9.4%
+- name: 衍射棱镜
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 9.4%
+    - attr: 暴击
+      value: 6.3%
+    - attr: 技能伤害
+      value: 10.9%
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 暴伤
+      value: 13.8%
+- name: 审判战士
+  cost: 1
+  sonata: 沉日劫明
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 小攻击
+      value: '50'
+    - attr: 大生命
+      value: 8.6%
+    - attr: 小生命
+      value: '390'
+- name: 审判战士
+  cost: 1
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 小攻击
+      value: '50'
+    - attr: 重击伤害
+      value: 7.1%
+    - attr: 大防御
+      value: 12.8%
+- name: 审判战士
+  cost: 1
+  sonata: 浮星祛暗
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 大生命
+      value: 7.9%
+    - attr: 暴击
+      value: 7.5%
+- name: 鸣泣战士
+  cost: 1
+  sonata: 熔山裂谷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 解放伤害
+      value: 9.4%
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 暴击
+      value: 7.5%
+    - attr: 小防御
+      value: '60'
+    - attr: 重击伤害
+      value: 10.1%
+- name: 先锋幼岩
+  cost: 1
+  sonata: 彻空冥雷
+  level: 25
+  main:
+    attr: 大攻击
+    value: 18.0%
+  sub:
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 暴击
+      value: 6.9%
+    - attr: 大防御
+      value: 10.9%
+    - attr: 解放伤害
+      value: 10.9%
+    - attr: 暴伤
+      value: 17.4%
+- name: 箭簇熊
+  cost: 3
+  sonata: ''
+  level: 15
+  main:
+    attr: 共鸣效率
+    value: 21.7%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 共鸣效率
+      value: 10.0%
+    - attr: 技能伤害
+      value: 7.9%
+- name: 紫羽鹭
+  cost: 3
+  sonata: 彻空冥雷
+  level: 15
+  main:
+    attr: 属伤
+    value: 20.4%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 普攻伤害
+      value: 10.1%
+    - attr: 大防御
+      value: 14.7%
+- name: 慈悲节使
+  cost: 1
+  sonata: 流云逝尽之空
+  level: 15
+  main:
+    attr: 大攻击
+    value: 12.2%
+  sub:
+    - attr: 重击伤害
+      value: 7.9%
+    - attr: 大攻击
+      value: 10.1%
+    - attr: 小攻击
+      value: '40'
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 解放伤害
+      value: 8.6%
+    - attr: 大防御
+      value: 10.9%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 技能伤害
+      value: 6.4%
+    - attr: 小攻击
+      value: '50'
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 大防御
+      value: 12.8%
+    - attr: 大攻击
+      value: 8.6%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 9.3%
+    - attr: 大防御
+      value: 14.7%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 9.4%
+- name: 共鸣回响·芙露德莉斯
+  cost: 4
+  sonata: 流云逝尽之空
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 重击伤害
+      value: 7.9%
+- name: 角
+  cost: 4
+  sonata: 浮星祛暗
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 重击伤害
+      value: 10.1%
+- name: 角
+  cost: 4
+  sonata: 浮星祛暗
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 技能伤害
+      value: 9.4%
+    - attr: 暴击
+      value: 7.5%
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴伤
+      value: 16.2%
+    - attr: 解放伤害
+      value: 7.9%
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 大生命
+      value: 7.9%
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 大攻击
+      value: 9.4%
+    - attr: 暴伤
+      value: 15.0%
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴伤
+      value: 12.6%
+    - attr: 大防御
+      value: 14.7%
+- name: 朔雷之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴伤
+    value: 22.8%
+  sub:
+    - attr: 暴击
+      value: 6.9%
+    - attr: 共鸣效率
+      value: 10.8%
+- name: 云闪之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 解放伤害
+      value: 7.1%
+- name: 云闪之鳞
+  cost: 4
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 暴击
+    value: 11.4%
+  sub:
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 暴伤
+      value: 15.0%
+- name: 暗鬃狼
+  cost: 3
+  sonata: 沉日劫明
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 共鸣效率
+      value: 10.0%
+- name: 刺玫菇
+  cost: 3
+  sonata: 沉日劫明
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 小生命
+      value: '430'
+    - attr: 普攻伤害
+      value: 8.6%
+- name: 刺玫菇
+  cost: 3
+  sonata: 沉日劫明
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 重击伤害
+      value: 10.1%
+    - attr: 大防御
+      value: 10.9%
+- name: 荣光节使
+  cost: 3
+  sonata: ''
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 技能伤害
+      value: 9.4%
+- name: 巨布偶
+  cost: 3
+  sonata: 凌冽决断之心
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 大生命
+      value: 10.9%
+    - attr: 暴击
+      value: 7.5%
+- name: 巨布偶
+  cost: 3
+  sonata: 凌冽决断之心
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 暴伤
+      value: 17.4%
+    - attr: 解放伤害
+      value: 7.1%
+- name: 凝水贵族
+  cost: 3
+  sonata: 凌冽决断之心
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 小生命
+      value: '360'
+- name: 毒冠贵族
+  cost: 3
+  sonata: 凌冽决断之心
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+    - attr: 重击伤害
+      value: 8.6%
+- name: 戏猿
+  cost: 3
+  sonata: 隐世回光
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 解放伤害
+      value: 9.4%
+- name: 绿熔蜥
+  cost: 3
+  sonata: ''
+  level: 10
+  main:
+    attr: 属伤
+    value: 15.6%
+  sub:
+    - attr: 普攻伤害
+      value: 9.4%
+    - attr: 暴击
+      value: 6.9%
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 共鸣效率
+      value: 6.8%
+    - attr: 大攻击
+      value: 8.6%
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 普攻伤害
+      value: 8.6%
+    - attr: 大防御
+      value: 10.0%
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 解放伤害
+      value: 10.1%
+    - attr: 暴击
+      value: 7.5%
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 大攻击
+      value: 8.6%
+    - attr: 小防御
+      value: '50'
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 技能伤害
+      value: 10.1%
+    - attr: 小攻击
+      value: '40'
+- name: 小翼龙·湮灭
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 小攻击
+      value: '40'
+    - attr: 重击伤害
+      value: 6.4%
+- name: 小翼龙·衍射
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大防御
+    value: 9.3%
+  sub:
+    - attr: 小攻击
+      value: '40'
+    - attr: 大防御
+      value: 10.9%
+- name: 小翼龙·热熔
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 小攻击
+      value: '50'
+    - attr: 技能伤害
+      value: 8.6%
+- name: 小翼龙·热熔
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 小攻击
+      value: '40'
+    - attr: 大生命
+      value: 8.6%
+- name: 小翼龙·热熔
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 大攻击
+      value: 7.1%
+    - attr: 解放伤害
+      value: 7.9%
+- name: 小翼龙·冷凝
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 大防御
+      value: 11.8%
+    - attr: 解放伤害
+      value: 10.1%
+- name: 小翼龙·冷凝
+  cost: 1
+  sonata: 愿戴荣光之旅
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 小攻击
+      value: '30'
+    - attr: 大生命
+      value: 10.1%
+- name: 刺玫菇
+  cost: 3
+  sonata: 沉日劫明
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 暴击
+      value: 6.3%
+    - attr: 共鸣效率
+      value: 8.4%
+- name: 审判战士
+  cost: 1
+  sonata: 沉日劫明
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 大生命
+      value: 7.9%
+    - attr: 暴伤
+      value: 12.6%
+- name: 魔术先生
+  cost: 1
+  sonata: 高天共奏之曲
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 大生命
+      value: 6.4%
+    - attr: 暴伤
+      value: 16.2%
+- name: 魔术先生
+  cost: 1
+  sonata: 高天共奏之曲
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 大生命
+      value: 8.6%
+    - attr: 暴击
+      value: 8.1%
+- name: 幽翎火
+  cost: 1
+  sonata: ''
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 技能伤害
+      value: 7.1%
+    - attr: 小生命
+      value: '510'
+- name: 浮灵偶·莱特
+  cost: 1
+  sonata: 凌冽决断之心
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 技能伤害
+      value: 8.6%
+    - attr: 大攻击
+      value: 10.1%
+- name: 啾啾河豚
+  cost: 1
+  sonata: ''
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+    - attr: 大防御
+      value: 10.0%
+- name: 火鬃狼
+  cost: 1
+  sonata: 熔山裂谷
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 共鸣效率
+      value: 10.8%
+    - attr: 暴击
+      value: 6.9%
+- name: 游弋蝶
+  cost: 1
+  sonata: 隐世回光
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 技能伤害
+      value: 11.6%
+    - attr: 暴伤
+      value: 17.4%
+- name: 游弋蝶
+  cost: 1
+  sonata: 隐世回光
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 重击伤害
+      value: 9.4%
+    - attr: 暴击
+      value: 9.3%
+- name: 巡徊猎手
+  cost: 1
+  sonata: 彻空冥雷
+  level: 10
+  main:
+    attr: 大生命
+    value: 11.8%
+  sub:
+    - attr: 重击伤害
+      value: 10.9%
+    - attr: 暴击
+      value: 9.3%
+- name: 热熔棱镜
+  cost: 1
+  sonata: 不绝余音
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 大生命
+      value: 9.4%
+    - attr: 暴伤
+      value: 15.0%
+- name: 阿磁磁
+  cost: 1
+  sonata: 不绝余音
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 共鸣效率
+      value: 11.6%
+    - attr: 暴伤
+      value: 15.0%
+- name: 审判战士
+  cost: 1
+  sonata: 沉日劫明
+  level: 10
+  main:
+    attr: 大攻击
+    value: 9.3%
+  sub:
+    - attr: 小生命
+      value: '430'
+    - attr: 暴击
+      value: 7.5%
+- name: 梦魇·飞廉之猩
+  cost: 4
+  sonata: 啸谷长风
+  level: 5
+  main:
+    attr: 暴击
+    value: 7.9%
+  sub:
+    - attr: 共鸣效率
+      value: 7.6%
+- name: 叹息古龙
+  cost: 4
+  sonata: ''
+  level: 5
+  main:
+    attr: 暴击
+    value: 7.9%
+  sub:
+    - attr: 暴击
+      value: 8.1%
+- name: 无常凶鹭
+  cost: 4
+  sonata: 轻云出月
+  level: 5
+  main:
+    attr: 暴击
+    value: 7.9%
+  sub:
+    - attr: 暴击
+      value: 6.9%
+- name: 哀声
+  cost: 4
+  sonata: 浮星祛暗
+  level: 5
+  main:
+    attr: 暴伤
+    value: 15.8%
+  sub:
+    - attr: 暴伤
+      value: 12.6%
+- name: 辉萤军势
+  cost: 4
+  sonata: 凝夜白霜
+  level: 5
+  main:
+    attr: 暴伤
+    value: 15.8%
+  sub:
+    - attr: 暴伤
+      value: 15.0%
+- name: 辉萤军势
+  cost: 4
+  sonata: 凝夜白霜
+  level: 5
+  main:
+    attr: 暴伤
+    value: 15.8%
+  sub:
+    - attr: 暴伤
+      value: 13.8%
+- name: 飞廉之猩
+  cost: 4
+  sonata: 啸谷长风
+  level: 5
+  main:
+    attr: 暴击
+    value: 7.9%
+  sub:
+    - attr: 暴击
+      value: 6.9%
+- name: 无冠者
+  cost: 4
+  sonata: 沉日劫明
+  level: 5
+  main:
+    attr: 暴伤
+    value: 15.8%
+  sub:
+    - attr: 暴伤
+      value: 12.6%
+- name: 无冠者
+  cost: 4
+  sonata: 沉日劫明
+  level: 5
+  main:
+    attr: 暴击
+    value: 7.9%
+  sub:
+    - attr: 暴击
+      value: 7.5%
+- name: 游鳞机枢
+  cost: 3
+  sonata: 彻空冥雷
+  level: 5
+  main:
+    attr: 属伤
+    value: 10.8%
+  sub:
+    - attr: 技能伤害
+      value: 9.4%
+- name: 裂变幼岩
+  cost: 1
+  sonata: ''
+  level: 5
+  main:
+    attr: 大攻击
+    value: 6.4%
+  sub:
+    - attr: 暴击
+      value: 7.5%

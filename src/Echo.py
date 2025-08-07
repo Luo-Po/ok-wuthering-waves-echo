@@ -32,6 +32,10 @@ class EchoAttr:
     def set_value(self, value):
         self.__value = value
 
+    @classmethod
+    def from_dict(cls, data):
+        return cls(data["attr"], data["value"])
+
     def to_dict(self):
         return {"attr": self.__attr, "value": self.__value}
 
@@ -53,6 +57,7 @@ class Echo:
     """
     __name: str
     __cost: int
+    __sonata: str
     __level: int
     __main_attr: EchoAttr
     __sub_attr_list: List[EchoAttr]
@@ -60,14 +65,15 @@ class Echo:
     __mian_score: float
     __sub_score: float
 
-    def __init__(self, __name="", __cost=0, __main=EchoAttr("", 0.0), __level=0, __sub_list=None, ):
-        if __sub_list is None:
+    def __init__(self, name="", cost=0, sonata="", main=EchoAttr("", 0.0), level=0, sub_list=None, ):
+        if sub_list is None:
             __sub_list = []
-        self.__name = __name  # 名称 (字符串)
-        self.__cost = __cost  # 类型 (字符串)
-        self.__main_attr = __main  # 主属性 (Echo)
-        self.__level = __level  # 等级 (字符串或整数)
-        self.__sub_attr_list = __sub_list  # 属性列表 (Echo列表)
+        self.__name = name  # 名称 (字符串)
+        self.__cost = cost  # 类型 (字符串)
+        self.__sonata = sonata
+        self.__level = level  # 等级 (字符串或整数)
+        self.__main_attr = main  # 主属性 (Echo)
+        self.__sub_attr_list = sub_list  # 属性列表 (Echo列表)
         self.__score = 0.0
         self.__main_score = 0.0
         self.__sub_score = 0.0
@@ -76,10 +82,12 @@ class Echo:
     def from_dict(cls, data):
         """从字典创建echo对象"""
         return cls(
-            __name=data.get("name", ""),
-            __cost=data.get("cost", ""),  # 注意原始键名拼写
-            __level=data.get("level", "0"),
-            __sub_list=data.get("property_list", [])
+            name=data.get("name", ""),
+            cost=data.get("cost", ""),  # 注意原始键名拼写
+            sonata=data.get("sonata", ""),
+            level=data.get("level", "0"),
+            main=EchoAttr.from_dict(data.get("main")),
+            sub_list=[EchoAttr.from_dict(a) for a in data.get("sub", [])]
         )
 
     def to_dict(self):
@@ -87,9 +95,10 @@ class Echo:
         return {
             "name": self.__name,
             "cost": self.__cost,  # 保持原始键名拼写
+            "sonata": self.__sonata,
             "level": self.__level,
-            "score": self.__score,
-            "property_list": [prop.to_dict() for prop in self.__sub_attr_list]
+            "main": self.__main_attr.to_dict(),
+            "sub": [prop.to_dict() for prop in self.__sub_attr_list]
         }
 
     # ===== 新增的修改方法 =====
@@ -109,6 +118,15 @@ class Echo:
     def set_cost(self, new):
         """设置花费"""
         self.__cost = int(new.replace("Cost", ""))
+        return self
+
+    def get_sonata(self) -> str:
+        """获取花费"""
+        return self.__sonata
+
+    def set_sonata(self, new: str):
+        """设置花费"""
+        self.__sonata = new
         return self
 
     def get_level(self) -> int:

@@ -52,6 +52,7 @@ box_list = {
     "bag_echos": {
         "name": Box(1738, 154, to_x=2469, to_y=227),
         "level": Box(2349, 322, to_x=2449, to_y=382),
+        "sonata": Box(1923, 424, 28, 28),
         "main": Box(1827, 566, to_x=2450, to_y=677),
         "sub": Box(1827, 681, to_x=2450, to_y=960)
     }
@@ -71,6 +72,27 @@ match_list = {
     "page": re.compile(
         r'^(属性详情|武器|技能|共鸣链|档案|数据坞|声骸图鉴|合鸣图鉴|数据融合|数据重构|声骸强化|声骸调谐|COST|((武器|声骸|补给|资源|素材|任务|特殊)|\d{1,4}/[123]000))$')
 }
+
+sonata_list = [
+    "凝夜白霜",
+    "熔山裂谷",
+    "浮星祛暗",
+    "沉日劫明",
+    "啸谷长风",
+    "彻空冥雷",
+    "不绝余音",
+    "轻云出月",
+    "隐世回光",
+    "凌冽决断之心",
+    "高天共奏之曲",
+    "此间永驻之光",
+    "幽夜隐匿之帷",
+    "无惧浪涛之勇",
+    "流云逝尽之空",
+    "奔狼燎原之焰",
+    "愿戴荣光之旅",
+    "失序彼岸之梦"
+]
 
 # 页面映射字典，将游戏中显示的页面名称映射为内部使用的页面标识
 pages = {
@@ -148,12 +170,11 @@ def ocr_echo(task, page) -> Echo:
     返回:
         Echo: 解析后的声骸(回声)对象，如果解析失败则返回空对象
     """
-
-    task.sleep(0.2)
     echo = Echo()
     try:
         name = ocr_name(task, page).replace("梦魔", "梦魇")
         echo.set_name(name)
+        task.log_info(f'name: {name}')
         # print(f'{name}')
         cost = 0
         for b in cost_list:
@@ -170,17 +191,21 @@ def ocr_echo(task, page) -> Echo:
         sub_attrs = ocr_sub_attr(task, page)
         echo.set_sub_attrs(sub_attrs)
         # print(f'{sub_attrs}')
+        if page == "bag_echos":
+            sonata = ocr_sonata(task, page)
+            echo.set_sonata(sonata)
+        else:
+            role = task.role
 
-        role = task.role
+            main_score = sum_main_score(echo, role)
+            echo.set_main_score(main_score)
 
-        main_score = sum_main_score(echo, role)
-        echo.set_main_score(main_score)
+            sub_score = sum_sub_scores(echo, role)
+            echo.set_sub_score(sub_score)
 
-        sub_score = sum_sub_scores(echo, role)
-        echo.set_sub_score(sub_score)
+            score = main_score + sub_score
+            echo.set_score(score)
 
-        score = main_score + sub_score
-        echo.set_score(score)
 
     except BaseException as e:
         print(f'ocr_echo failed for {e.args}')
@@ -205,16 +230,29 @@ def ocr_name(task, page, i=0) -> str:
     try:
         name_boxs = task.ocr(box=box_list[page]["name"])
         name = name_boxs[0].name
-        cost = 0
-        for b in cost_list:
-            if b["name"] == name:
-                cost = b["type"]
 
     except BaseException:
         if i == 4:
             raise
         name = ocr_name(task, page, i + 1)
     return name
+
+
+def ocr_sonata(task, page, i=0) -> str:
+    try:
+        sonata = ""
+        for s in sonata_list:
+            sonata_box = task.find_one(s, box=box_list[page]["sonata"])
+            if sonata_box is not None:
+                sonata = sonata_box.name
+        if sonata == "":
+            raise
+    except BaseException as e:
+        if i == 4:
+            raise
+        sonata = ocr_sonata(task, page, i + 1)
+
+    return sonata
 
 
 def ocr_level(task, page, i=0):

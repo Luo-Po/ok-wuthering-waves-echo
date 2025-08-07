@@ -26,15 +26,16 @@ class WuWaEchoScannerTask(TriggerTask):
         while not is_page(self, "bag_echos"):  # 等待玩家进入声骸背包
             self.sleep(1)
 
-        self.sleep(2)  # 等待页面完全加载
-
         self.log_info(f"开始扫描声骸，已扫描 {self.scanned_count}/{self.config.get('scan_limit')}")
 
         level = 1
         x = 1
         y = 1
+        page = 1
+        click_echo_box(self, x, y)  # 点击声骸
         while level > 0:
 
+            self.sleep(0.15)
             # 检查这个格子是否已经处理过
             # 使用格子中心点作为唯一标识
             slot_center_coord = (x, y)
@@ -43,8 +44,8 @@ class WuWaEchoScannerTask(TriggerTask):
 
             self.log_info(f"点击第 {self.scanned_count + 1} 个声骸格子: {x}, {y}")
             click_echo_box(self, x, y)  # 点击声骸
-            self.sleep(self.config.get('scan_delay'))
             echo = ocr_echo(self, "bag_echos")  # 提取声骸信息
+
             if echo.get_level() == 0:
                 level = 0
                 continue
@@ -63,10 +64,15 @@ class WuWaEchoScannerTask(TriggerTask):
                 x = 1
                 y += 1
             else:
-                scroll_echo_list(self, "down", 63)
+                if page == 1:
+                    scroll_echo_list(self, "down", 63)
+                else:
+                    scroll_echo_list(self, "down", 31)
                 x = 1
                 y = 1
                 self.processed_echo_coords = set()  # 记录已处理的声骸格子坐标，避免重复扫描
+            page += 1
+        self._save_echo_data()
 
     def _save_echo_data(self):
         """将scanned_echoes保存到yaml文件"""
@@ -74,19 +80,7 @@ class WuWaEchoScannerTask(TriggerTask):
         # 将Echo对象转换为字典以便保存
         serializable_echoes = []
         for echo in self.scanned_echoes:
-            serializable_echo = {
-                'name': echo.name,
-                'rarity': echo.rarity.value,
-                'echo_type': echo.echo_type.value,
-                'level': echo.level,
-                'main_stat': {'stat_type': echo.main_stat.stat_type, 'value': echo.main_stat.value,
-                              'is_percentage': echo.main_stat.is_percentage},
-                'sub_stats': [{'stat_type': s.stat_type, 'value': s.value, 'is_percentage': s.is_percentage} for s in
-                              echo.sub_stats],
-                'set_name': echo.set_name,
-                'cost': echo.cost,
-                'position': echo.position
-            }
+            serializable_echo = echo.to_dict()
             serializable_echoes.append(serializable_echo)
 
         with open(save_path, 'w', encoding='utf-8') as f:
