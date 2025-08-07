@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 from ok import ConfigOption
 
-version = "dev"
+version = "1.0"
 
 key_config_option = ConfigOption('Game Hotkey Config', {  # 全局配置示例
     'Echo Key': 'q',

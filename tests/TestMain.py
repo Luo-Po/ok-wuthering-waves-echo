@@ -3,7 +3,7 @@ import unittest
 
 from ok.test.TaskTestCase import TaskTestCase
 
-from src.config import config
+from config import config
 from src.tasks.oneTimeTasks.MyOneTimeTask import MyOneTimeTask
 
 
