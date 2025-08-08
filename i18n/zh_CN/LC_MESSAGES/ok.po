@@ -83,3 +83,27 @@ msgstr ""
 
 msgid "领任务"
 msgstr ""
+
+msgid "选择角色"
+msgstr ""
+
+msgid "选择命座"
+msgstr ""
+
+msgid "声骸升级辅助"
+msgstr ""
+
+msgid "请在声骸页面点击开始"
+msgstr ""
+
+msgid "鸣潮声骸扫描器"
+msgstr ""
+
+msgid "扫描游戏中声骸数据并保存"
+msgstr ""
+
+msgid "置顶当前窗口"
+msgstr ""
+
+msgid "开启后可以保持当前窗口一直显示在屏幕上"
+msgstr ""
