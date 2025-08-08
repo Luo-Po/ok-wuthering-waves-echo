@@ -115,18 +115,21 @@ def sum_score(echo_attr: EchoAttr, role) -> float:
         # 获取基础规则
         rule_type = role_list[role["roleListId"] - 1]
         cur_rule = rule_list[rule_type["rule"]]
-
+        print("1")
         # 检查命座配置
         if check_ming_config(role["roleListId"], role_sum_property):
             if "ming" in role and int(role["ming"]) > 0:
                 ming_idx = int(role["ming"]) - 1
                 # 获取命座特殊规则
+
+                print("2")
                 for rsp in role_sum_property:
                     if rsp["id"] == role["roleListId"]:
                         rule_type = rsp["mzProperty"][ming_idx]
                         cur_rule = rsp["mzRule"][ming_idx]
                         break
 
+        print("3")
         # 确定词条系数
         xs_map = {
             "暴击": cur_rule["crit"],
@@ -147,14 +150,13 @@ def sum_score(echo_attr: EchoAttr, role) -> float:
         }
         xs = xs_map.get(echo_attr.get_attr(), 0.0)
         # 处理百分号
-        value_str = echo_attr.get_value().replace("%", "")
+        value_str = echo_attr.get_value()
         value = float(value_str)
         # 计算分数
         score = value * xs * 100 / float(rule_type["maxscore"])
         return round(score, 2)
 
     except KeyError as e:
-        print(f"计算分数时缺少关键字段: {e}")
         return 0.0
 
 
@@ -170,7 +172,6 @@ def sum_main_score1(echo: Echo, role):
         float: 主词条属性的得分，保留两位小数
     """
     main_attr = echo.get_main_attr()
-    print(f'main_attr:{main_attr}')
     main_score = sum_score(main_attr, role) if main_attr else 0.0
     return round(main_score, 2)
 
@@ -187,7 +188,6 @@ def sum_main_score2(echo: Echo, role):
         float: 基础属性的得分，保留两位小数
     """
     base_attr = base_attr_map.get(echo.get_cost(), None)
-    print(f'base_attr:{base_attr}')
     base_score = sum_score(base_attr, role) if base_attr else 0.0
     return round(base_score, 2)
 

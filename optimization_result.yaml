@@ -1,0 +1,87 @@
+best_combination:
+  - cost: 1
+    level: 25
+    main:
+      attr: 大攻击
+      value: 18.0%
+    name: 寒霜陆龟
+    sonata: 凝夜白霜
+    sub:
+      - attr: 共鸣效率
+        value: 10.8%
+      - attr: 暴击
+        value: 6.9%
+      - attr: 小攻击
+        value: '60'
+      - attr: 大防御
+        value: 10.9%
+      - attr: 暴伤
+        value: 12.6%
+  - cost: 1
+    level: 25
+    main:
+      attr: 大攻击
+      value: 18.0%
+    name: 风鬃狼
+    sonata: 凌冽决断之心
+    sub:
+      - attr: 大攻击
+        value: 9.4%
+      - attr: 暴击
+        value: 6.3%
+      - attr: 共鸣效率
+        value: 7.6%
+      - attr: 暴伤
+        value: 17.4%
+      - attr: 小攻击
+        value: '50'
+  - cost: 1
+    level: 10
+    main:
+      attr: 大攻击
+      value: 9.3%
+    name: 魔术先生
+    sonata: 高天共奏之曲
+    sub:
+      - attr: 大生命
+        value: 6.4%
+      - attr: 暴伤
+        value: 16.2%
+  - cost: 3
+    level: 25
+    main:
+      attr: 属伤
+      value: 30.0%
+    name: 暗鬃狼
+    sonata: 熔山裂谷
+    sub:
+      - attr: 暴击
+        value: 7.5%
+      - attr: 暴伤
+        value: 13.8%
+      - attr: 小防御
+        value: '50'
+      - attr: 共鸣效率
+        value: 7.6%
+      - attr: 普攻伤害
+        value: 8.6%
+  - cost: 4
+    level: 25
+    main:
+      attr: 暴伤
+      value: 44.0%
+    name: 异构武装
+    sonata: 凌冽决断之心
+    sub:
+      - attr: 暴击
+        value: 8.1%
+      - attr: 大防御
+        value: 9.0%
+      - attr: 大攻击
+        value: 8.6%
+      - attr: 解放伤害
+        value: 10.1%
+      - attr: 小防御
+        value: '50'
+fitness_score: 0
+optimization_target: 攻击力

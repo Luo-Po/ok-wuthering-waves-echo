@@ -3992,6 +3992,7 @@ cost_list = [
     {"id": 114, "name": "苦信者的作俑", "type": "Cost1"},
     {"id": 115, "name": "梦魇·破霜猎手", "type": "Cost1"},
     {"id": 116, "name": "梦魇·审判战士", "type": "Cost1"},
+    {"id": 116, "name": "梦·审判战士", "type": "Cost1"},
     {"id": 117, "name": "梦魇·振铎乐师", "type": "Cost3"},
     {"id": 118, "name": "共鸣回响·芬莱克", "type": "Cost4"},
     {"id": 119, "name": "梦魇·赫卡忒", "type": "Cost4"},

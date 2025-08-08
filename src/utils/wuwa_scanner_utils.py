@@ -11,16 +11,145 @@ from src.data import cost_list
 from src.echo_scorer import sum_sub_scores, sum_main_score
 
 # 属性映射字典，将游戏中显示的属性名称映射为内部使用的属性名称
+cost_tran = {
+    "呼咻咻": "呼咻咻",
+    "咔嚓嚓": "咔嚓嚓",
+    "阿嗞嗞": "阿嗞嗞",
+    "阿磁磁": "阿嗞嗞",
+    "呜咔咔": "呜咔咔",
+    "冰墩墩": "冰墩墩",
+    "咕咕河豚": "咕咕河豚",
+    "啾啾河豚": "啾啾河豚",
+    "遁地鼠": "遁地鼠",
+    "绿熔蜥（稚形）": "绿熔蜥（稚形）",
+    "碎獠猪": "碎獠猪",
+    "火鬃狼": "火鬃狼",
+    "晶螯蝎": "晶螯蝎",
+    "游弋蝶": "游弋蝶",
+    "寒霜陆龟": "寒霜陆龟",
+    "幼猿": "幼猿",
+    "融火虫": "融火虫",
+    "侏侏鸵": "侏侏鸵",
+    "青羽鹭": "青羽鹭",
+    "紫羽鹭": "紫羽鹭",
+    "绿熔蜥": "绿熔蜥",
+    "箭簇熊": "箭簇熊",
+    "暗鬃狼": "暗鬃狼",
+    "戏猿": "戏猿",
+    "雪鬃狼": "雪鬃狼",
+    "踏光兽": "踏光兽",
+    "飞廉之猩": "飞廉之猩",
+    "无常凶鹭": "无常凶鹭",
+    "哀声鸷": "哀声鸷",
+    "哀声": "哀声鸷",
+    "无冠者": "无冠者",
+    "无妄者": "无妄者",
+    "鸣钟之龟": "鸣钟之龟",
+    "冷凝棱镜": "冷凝棱镜",
+    "热熔棱镜": "热熔棱镜",
+    "湮灭棱镜": "湮灭棱镜",
+    "衍射棱镜": "衍射棱镜",
+    "辉萤军势": "辉萤军势",
+    "车刃镰": "车刃镰",
+    "聚械机偶": "聚械机偶",
+    "刺玫菇（稚形）": "刺玫菇（稚形）",
+    "先锋幼岩": "先锋幼岩",
+    "裂变幼岩": "裂变幼岩",
+    "刺玫菇": "刺玫菇",
+    "坚岩斗士": "坚岩斗士",
+    "惊蛰猎手": "惊蛰猎手",
+    "破霜猎手": "破霜猎手",
+    "巡徊猎手": "巡徊猎手",
+    "鸣泣战士": "鸣泣战士",
+    "审判战士": "审判战士",
+    "振铎乐师": "振铎乐师",
+    "奏谕乐师": "奏谕乐师",
+    "冥渊守卫": "冥渊守卫",
+    "磐石守卫": "磐石守卫",
+    "朔雷之鳞": "朔雷之鳞",
+    "云闪之鳞": "云闪之鳞",
+    "燎照之骑": "燎照之骑",
+    "通行灯偶": "通行灯偶",
+    "巡哨机傀": "巡哨机傀",
+    "游鳞机枢": "游鳞机枢",
+    "角": "角",
+    "无归的谬误": "无归的谬误",
+    "雷鬃狼": "雷鬃狼",
+    "霜鬃狼": "霜鬃狼",
+    "风鬃狼": "风鬃狼",
+    "梦魇·飞廉之猩": "梦魇·飞廉之猩",
+    "梦魇·无常凶鹭": "梦魇·无常凶鹭",
+    "梦魇·哀声鸷": "梦魇·哀声鸷",
+    "梦魇·哀声莺": "梦魇·哀声鸷",
+    "梦魇·无冠者": "梦魇·无冠者",
+    "叹息古龙": "叹息古龙",
+    "浮灵偶·海德": "浮灵偶·海德",
+    "浮灵偶·蕾弗": "浮灵偶·蕾弗",
+    "浮灵偶·莱特": "浮灵偶·莱特",
+    "幽翎火": "幽翎火",
+    "云海妖精": "云海妖精",
+    "魔术先生": "魔术先生",
+    "寂寞小姐": "寂寞小姐",
+    "工头布偶": "工头布偶",
+    "欺诈奇藏": "欺诈奇藏",
+    "浮灵偶": "浮灵偶",
+    "巨布偶": "巨布偶",
+    "巡游骑士": "巡游骑士",
+    "幻昼骑士": "幻昼骑士",
+    "暗夜骑士": "暗夜骑士",
+    "毒冠贵族": "毒冠贵族",
+    "持刃贵族": "持刃贵族",
+    "凝水贵族": "凝水贵族",
+    "琉璃刀伶": "琉璃刀伶",
+    "梦魇·朔雷之鳞": "梦魇·朔雷之鳞",
+    "梦魇·云闪之鳞": "梦魇·云闪之鳞",
+    "梦魇·燎照之骑": "梦魇·燎照之骑",
+    "罗蕾莱": "罗蕾莱",
+    "异构武装": "异构武装",
+    "赫卡忒": "赫卡忒",
+    "重塑雕像的拳砾": "重塑雕像的拳砾",
+    "飓力熊": "飓力熊",
+    "气动棱镜": "气动棱镜",
+    "愚金幼岩": "愚金幼岩",
+    "釉变幼岩": "釉变幼岩",
+    "梦魇·辉萤军势": "梦魇·辉萤军势",
+    "共鸣回响·芙露德莉斯": "共鸣回响·芙露德莉斯",
+    "共鸣回响·": "共鸣回响·芙露德莉斯",
+    "共鸣回响": "共鸣回响·芙露德莉斯",
+    "慈悲节使": "慈悲节使",
+    "赦罪节使": "赦罪节使",
+    "卫冕节使": "卫冕节使",
+    "小翼龙·气动": "小翼龙·气动",
+    "小翼龙·导电": "小翼龙·导电",
+    "小翼龙·冷凝": "小翼龙·冷凝",
+    "荣光节使": "荣光节使",
+    "梦魇·凯尔匹": "梦魇·凯尔匹",
+    "荣耀狮像": "荣耀狮像",
+    "角鳄": "角鳄",
+    "传道者的遗形": "传道者的遗形",
+    "小翼龙·衍射": "小翼龙·衍射",
+    "小翼龙·热熔": "小翼龙·热熔",
+    "小翼龙·湮灭": "小翼龙·湮灭",
+    "苦信者的作俑": "苦信者的作俑",
+    "梦魇·破霜猎手": "梦魇·破霜猎手",
+    "梦魇·审判战士": "梦魇·审判战士",
+    "梦·审判战士": "梦魇·审判战士",
+    "梦魇·振铎乐师": "梦魇·振铎乐师",
+    "共鸣回响·芬莱克": "共鸣回响·芬莱克",
+    "梦魇·赫卡忒": "梦魇·赫卡忒"}
 cases = {
     "攻击": "大攻击",
     "生命": "大生命",
     "防御": "大防御",
     "共鸣效率": "共鸣效率",
+    "艾鸣效率": "共鸣效率",
+    "效率": "共鸣效率",
     "普攻伤害加成": "普攻伤害",
     "重击伤害加成": "重击伤害",
     "共鸣技能伤害加成": "技能伤害",
     "共鸣解放伤害加成": "解放伤害",
     "暴击伤害": "暴伤",
+    "击伤害": "暴伤",
     "暴击": "暴击",
     "治疗效果加成": "治疗",
     "衍射伤害加成": "属伤",
@@ -45,9 +174,16 @@ box_list = {
     },
     "echo_upgrade": {
         "name": Box(251, 152, to_x=635, to_y=201),
-        "level": Box(230, 229, to_x=325, to_y=290),
+        "level": Box(230, 228, to_x=325, to_y=291),
         "main": Box(287, 312, to_x=918, to_y=372),
         "sub": Box(287, 422, to_x=918, to_y=704)
+    },
+    "level_up": {
+        "is_level_up": Box(1176, 360, to_x=1382, to_y=427),
+        "before": Box(909, 516, to_x=1093, to_y=605),
+        "after": Box(1424, 516, to_x=1609, to_y=605),
+        "main": Box(882, 658, to_x=1734, to_y=778),
+        "sub": Box(882, 810, to_x=1734, to_y=1168)
     },
     "bag_echos": {
         "name": Box(1738, 154, to_x=2469, to_y=227),
@@ -68,7 +204,7 @@ match_list = {
     "main": re.compile(
         r'^((.*\d{1,3}(?:\.\d%)?)|暴击|暴击伤害|攻击|生命|防御|共鸣效率|治疗效果加成|((([衍行])射|气动|热熔|冷凝|(湮灭|灭)|导电)伤害加成))$'),
     "sub": re.compile(
-        r'^((.*\d{1,3}(?:\.\d%)?)|暴击|暴击伤害|攻击|生命|防御|共鸣效率|((普攻|重击|共鸣技能|共鸣解放)伤害加成))$'),
+        r'^((.*\d{1,3}(?:\.\d%)?)|暴击|暴击伤害|攻击|生命|防御|[共|艾]鸣效率|效率|((普攻|重击|共鸣技能|共鸣解放)伤害加成))$'),
     "page": re.compile(
         r'^(属性详情|武器|技能|共鸣链|档案|数据坞|声骸图鉴|合鸣图鉴|数据融合|数据重构|声骸强化|声骸调谐|COST|((武器|声骸|补给|资源|素材|任务|特殊)|\d{1,4}/[123]000))$')
 }
@@ -133,7 +269,6 @@ def is_page(task, page):
     """
     return page == which_page(task)
 
-
 def which_page(task) -> str:
     """
     获取当前页面的标识
@@ -144,6 +279,7 @@ def which_page(task) -> str:
     返回:
         str: 当前页面的标识，如果无法识别则返回空字符串
     """
+    task.sleep(0.1)
     page_boxs = task.ocr(match=match_list["page"], box=box_list["page"])
     if len(page_boxs) == 0:
         return ""
@@ -158,7 +294,6 @@ def which_page(task) -> str:
     page = pages[re.sub(r'(\d+/)', "1/", page)]
     return page
 
-
 def ocr_echo(task, page) -> Echo:
     """
     从游戏界面扫描并解析声骸(回声)数据
@@ -172,11 +307,11 @@ def ocr_echo(task, page) -> Echo:
     """
     echo = Echo()
     try:
-        name = ocr_name(task, page).replace("梦魔", "梦魇")
+        name = ocr_name(task, page)
         echo.set_name(name)
         task.log_info(f'name: {name}')
         # print(f'{name}')
-        cost = 0
+        cost = ""
         for b in cost_list:
             if b["name"] == name:
                 cost = b["type"]
@@ -203,14 +338,13 @@ def ocr_echo(task, page) -> Echo:
             sub_score = sum_sub_scores(echo, role)
             echo.set_sub_score(sub_score)
 
-            score = main_score + sub_score
+            score = round(main_score + sub_score, 2)
             echo.set_score(score)
 
 
-    except BaseException as e:
-        print(f'ocr_echo failed for {e.args}')
+    except ValueError as e:
+        raise BaseException("识别声骸失败：" + e.__str__())
     return echo
-
 
 def ocr_name(task, page, i=0) -> str:
     """
@@ -228,15 +362,28 @@ def ocr_name(task, page, i=0) -> str:
         BaseException: 如果重试4次后仍解析失败则抛出异常
     """
     try:
+        task.sleep(0.1)
         name_boxs = task.ocr(box=box_list[page]["name"])
-        name = name_boxs[0].name
-
+        if len(name_boxs) == 1:
+            name = name_boxs[0].name
+        else:
+            name = name_boxs[0].name + name_boxs[1].name
+        print(cost_tran["无妄者"])
+        print(name)
+        name = name.replace("梦魔", "梦魇").replace("一", "·").replace("~", "·").replace("异相·", "").replace("异相",
+                                                                                                              "")
+        print(name)
+        if name in cost_tran:
+            name = cost_tran[name]
+        else:
+            print("raise")
+            raise
     except BaseException:
         if i == 4:
-            raise
-        name = ocr_name(task, page, i + 1)
+            raise BaseException("识别声骸名称错误")
+        else:
+            name = ocr_name(task, page, i + 1)
     return name
-
 
 def ocr_sonata(task, page, i=0) -> str:
     try:
@@ -249,11 +396,10 @@ def ocr_sonata(task, page, i=0) -> str:
             raise
     except BaseException as e:
         if i == 4:
-            raise
-        sonata = ocr_sonata(task, page, i + 1)
-
+            raise BaseException("识别声骸名称错误")
+        else:
+            sonata = ocr_sonata(task, page, i + 1)
     return sonata
-
 
 def ocr_level(task, page, i=0):
     """
@@ -268,13 +414,15 @@ def ocr_level(task, page, i=0):
         int or None: 解析后的声骸(回声)等级，如果重试4次后仍解析失败则返回None
     """
     try:
-        level_boxs = task.ocr(box=box_list[page]["level"])
-        return int(level_boxs[0].name.lstrip('+'))
+        task.sleep(0.1)
+        level_boxs = task.ocr(match=match_list["level"], box=box_list[page]["level"])
+        level = int(level_boxs[0].name.lstrip('+'))
     except BaseException:
+        print(BaseException)
         if i == 4:
-            return None
-        return ocr_level(task, page, i + 1)
-
+            raise BaseException("识别声骸等级错误")
+        level = ocr_level(task, page, i + 1)
+    return level
 
 def ocr_main(task, page, i=0):
     """
@@ -289,14 +437,15 @@ def ocr_main(task, page, i=0):
         EchoAttr or None: 解析后的声骸(回声)主属性对象，如果重试4次后仍解析失败则返回None
     """
     try:
+        task.sleep(0.1)
         main_attr_boxs = task.ocr(match=match_list["main"], box=box_list[page]["main"])
         # print(f'main_attr_boxs:{len(main_attr_boxs)},{[box for box in main_attr_boxs]}')
-        return EchoAttr(cases[main_attr_boxs[0].name], main_attr_boxs[1].name)
+        main = EchoAttr(cases[main_attr_boxs[0].name], main_attr_boxs[1].name.replace("%", ""))
     except BaseException:
         if i == 4:
-            return None
-        return ocr_main(task, page, i + 1)
-
+            raise BaseException("识别声骸主词条错误")
+        main = ocr_main(task, page, i + 1)
+    return main
 
 def ocr_sub_attr(task, page, i=0) -> List[EchoAttr]:
     """
@@ -317,6 +466,7 @@ def ocr_sub_attr(task, page, i=0) -> List[EchoAttr]:
         a = True
         attr = ""
         echo_attrs: List[EchoAttr] = []
+        task.sleep(0.1)
         sub_boxs = task.ocr(match=match_list["sub"], box=box_list[page]["sub"])
         # print(f'sub_boxs:{len(sub_boxs)},{[box.name for box in sub_boxs]}')
         for sub in sub_boxs:
@@ -327,6 +477,8 @@ def ocr_sub_attr(task, page, i=0) -> List[EchoAttr]:
             else:
                 value = sub.name.lstrip('.·')
                 if value.endswith("%"):
+                    value = value.replace("%", "")
+                    print(attr)
                     attr = cases[attr]
                 else:
                     if attr == "生命":
@@ -335,60 +487,47 @@ def ocr_sub_attr(task, page, i=0) -> List[EchoAttr]:
                         attr = "小防御"
                     elif attr == "攻击":
                         attr = "小攻击"
-                # print(f'attr:{attr},value:{value}')
+
+                    print(attr)
+                print(f'attr:{attr},value:{value}')
                 echo_attrs.append(EchoAttr(attr, value))
                 a = True
     except Exception as e:
         if i == 4:
-            return None
-        task.log_error(f'重新执行扫描')
+            raise BaseException("识别声骸副词条错误")
         echo_attrs = ocr_sub_attr(task, page, i + 1)
     return echo_attrs
 
 
-def extract_percentage(s):
-    """
-    从OCR字符串中提取百分数值，返回格式化后的百分数字符串
+def is_level_up(task) -> bool:
+    task.sleep(0.1)
+    boxs = task.ocr(match="调谐成功", box=box_list["level_up"]["is_level_up"])
+    for box in boxs:
+        return True
+    return False
 
-    参数:
-        s (str): 可能包含前缀噪点('.', '·')的数字字符串
 
-    返回:
-        str: 格式化后的百分数字符串（如"12%" 或 "12.3%"）
-    """
-    # 清理开头的噪点字符
-    cleaned = s.lstrip('.·')
-
-    # 如果清理后为空，返回0%
-    if not cleaned:
-        return "0%"
-
-    # 使用正则匹配数字模式（整数或带一位小数）
-    match = re.match(r'^(\d{1,2})(\.\d)?', cleaned)
-    if not match:
-        return "0%"
-
-    # 提取匹配到的数字部分
-    num_str = match.group(0)
-
-    # 处理整数情况
-    if '.' not in num_str:
-        try:
-            value = int(num_str)
-            if value <= 50:
-                return f"{value}%"
-            # 超过50%按0%处理
-            return "0%"
-        except ValueError:
-            return "0%"
-
-    # 处理小数情况
+def ocr_level_increase(task):
+    before_level = 0
+    after_level = 0
     try:
-        value = float(num_str)
-        if value <= 50.0:
-            # 保留一位小数格式化
-            return f"{value:.1f}%"
-        # 超过50.0%按0%处理
-        return "0%"
-    except ValueError:
-        return "0%"
+        task.sleep(0.1)
+        before_level_boxs = task.ocr(match=match_list["level"], box=box_list["level_up"]["before"])
+        before_level = before_level_boxs[0].name.lstrip('+')
+    except BaseException as e:
+        task.error(f'声骸强化成功界面升级前等级识别错误')
+    try:
+        task.sleep(0.1)
+        after_level_boxs = task.ocr(match=match_list["level"], box=box_list["level_up"]["after"])
+        after_level = after_level_boxs[0].name.lstrip('+')
+    except BaseException as e:
+        task.error(f'声骸强化成功界面升级后等级识别错误')
+    return int(before_level), int(after_level)
+
+
+def ocr_echo_level_up_attr(task) -> List[EchoAttr]:
+    before_level, after_level = ocr_level_increase(task)
+    increase = int(after_level / 5) - int(before_level / 5)
+    if increase > 0:
+        return ocr_sub_attr(task, "level_up")
+    return None

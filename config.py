@@ -6,15 +6,6 @@ from ok import ConfigOption
 
 version = "dev"
 
-key_config_option = ConfigOption('Game Hotkey Config', {  # 全局配置示例
-    'Echo Key': 'q',
-    'Liberation Key': 'r',
-    'Resonance Key': 'e',
-    'Tool Key': 't',
-    'Bag Key': 'b',
-}, description='In Game Hotkey for Skills')
-
-
 def calculate_pc_exe_path(running_path):
     """计算游戏可执行文件的路径
 
@@ -64,6 +55,14 @@ def make_bottom_right_black(frame):
         return frame
 
 
+key_config_option = ConfigOption('Game Hotkey Config', {  # 全局配置示例
+    'Echo Key': 'q',
+    'Liberation Key': 'r',
+    'Resonance Key': 'e',
+    'Tool Key': 't',
+    'Bag Key': 'b',
+}, description='In Game Hotkey for Skills')
+
 config = {
     'debug': False,  # Optional, default: False
     'use_gui': True,
@@ -93,7 +92,7 @@ config = {
         'force_no_night_light': False,
         'require_bg': True
     },
-    'start_timeout': 120,  # default 60
+    'start_timeout': 60,  # default 60
     'window_size': {  # ok-script窗口大小
         'width': 1200,
         'height': 800,
@@ -136,5 +135,7 @@ config = {
     ],
     'trigger_tasks': [
         ["src.tasks.triggerTasks.MyTriggerTask", "MyTriggerTask"],
+        ["src.tasks.triggerTasks.WindowTopTask", "WindowTopTask"],
+        ["src.tasks.triggerTasks.EchoEnhanceProcessTask", "EchoEnhanceProcessTask"],
     ]
 }

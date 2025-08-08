@@ -2,7 +2,6 @@ from ok import BaseTask, Box
 
 from src.Echo import contrast_echo
 from src.echo_scorer import getIdByName
-from src.utils.windows_utils import set_window_topmost, get_active_window
 from src.utils.wuwa_scanner_utils import ocr_echo, is_page
 
 
@@ -36,9 +35,9 @@ class EchoUpgradeAssistTask(BaseTask):
         self.echos = []
         self.role = {
             "roleListId": getIdByName(self.config.get("选择角色")),
-            "ming": 1
+            "ming": int(self.config.get("选择命座"))
         }
-        set_window_topmost(get_active_window())
+        # set_window_topmost(get_active_window())
         if is_page(self, "echo_change"):
             self.identifyExistingEcho()
             for echo in self.echos:
@@ -53,7 +52,7 @@ class EchoUpgradeAssistTask(BaseTask):
             for c in self.lost_cost:
                 self.info_set(
                     f'COST{c} 最低副词条平均分',
-                    f'{self.lost_cost[c]}'
+                    f'{round(self.lost_cost[c], 2)}'
                 )
 
             self.log_info("可以开始强化声骸了")

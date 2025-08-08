@@ -18,7 +18,7 @@ class EchoAttr:
 
     def __init__(self, attr, value):
         self.__attr = attr
-        self.__value = value
+        self.__value = float(value)
 
     def get_attr(self):
         return self.__attr
@@ -30,7 +30,9 @@ class EchoAttr:
         return self.__value
 
     def set_value(self, value):
-        self.__value = value
+        if value.endswith("%"):
+            value = value.replace("%", "")
+        self.__value = float(value)
 
     @classmethod
     def from_dict(cls, data):
@@ -198,7 +200,7 @@ class Echo:
         """获取得分"""
         return self.__score
 
-    def set_score(self, new):
+    def set_score(self, new: float):
         """设置得分"""
         self.__score = new
         return self
@@ -207,7 +209,7 @@ class Echo:
         """获取主词条得分"""
         return self.__main_score
 
-    def set_main_score(self, new):
+    def set_main_score(self, new: float):
         """设置主词条得分"""
         self.__main_score = new
         return self
@@ -216,7 +218,7 @@ class Echo:
         """获取副词条得分"""
         return self.__sub_score
 
-    def set_sub_score(self, new):
+    def set_sub_score(self, new: float):
         """设置副词条得分"""
         self.__sub_score = new
         return self

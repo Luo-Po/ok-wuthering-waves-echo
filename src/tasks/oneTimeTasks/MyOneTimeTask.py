@@ -1,7 +1,7 @@
 import re
 
 from src.tasks.MyBaseTask import MyBaseTask
-from src.utils.wuwa_scanner_utils import box_list
+from src.utils.wuwa_scanner_utils import box_list, match_list
 
 
 class MyOneTimeTask(MyBaseTask):
@@ -23,7 +23,8 @@ class MyOneTimeTask(MyBaseTask):
 
     def run(self):
         while True:
-            self.ocr(box=box_list["bag_echos"]["main"])
+            self.sleep(1)
+            self.ocr(match=match_list["level"], box=box_list["echo_change"]["level"])
 
     def find_some_text_on_bottom_right(self):
         return self.ocr(box="bottom_right", match="商城", log=True)  # 指定box以提高ocr速度
